@@ -1,0 +1,415 @@
+$font-stack: Arial, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+
+$background-0: #ECEEF0;
+$background-1: #FFFFFF;
+$background-2: #1264A3!important;
+$background-3: #53AAEC!important;
+
+$foreground-0: #1D1B30!important;
+$foreground-2: #FFFFFF!important;
+$foreground-3: #1264A3!important;
+
+$background-chat-out: #53AAEC63!important;
+$background-chat-in: #C1C8CF78!important;
+
+
+* {
+	box-sizing: border-box;
+	font-weight: normal;
+	font-family: $font-stack;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: $background-0;
+		color: $foreground-0;
+}
+
+
+// Global Font styles
+.text-break {
+	overflow-wrap: break-word!important;
+}
+
+.md-font-sm {
+	font-size: 90%;
+}
+
+.md-font-xs {
+	font-size: 80%;
+}
+
+
+// Global Icon styles
+.material-icons {
+  &.md-16 {
+    font-size: 16px;
+  }
+
+  &.md-18 {
+    font-size: 18px;
+  }
+
+  &.md-20 {
+    font-size: 20px;
+  }
+}
+
+
+// Global background styles
+.md-bg-1 {
+  background-color: $background-2;
+}
+
+.md-bg-2 {
+  background-color: $background-3;
+}
+
+
+// Global foreground styles
+.md-fg-0 {
+  color: $foreground-2;
+}
+
+// Global 'a' link style
+a {
+	color: inherit;
+}
+
+
+// Global Form styles
+form {
+	input[type="text"], input[type="password"], select, textarea[type="text"], .alert {
+		border-radius: 0.5rem!important;
+	}
+
+	.help-text {
+		display: none;
+	}
+
+	.form-row:focus-within > .form-group > .help-text, .form-group:focus-within > .help-text {
+		display: block;
+	}
+}
+
+
+// Global button styles
+%button-1-shared {
+  background-color: $background-2;
+  color: $foreground-2;
+	border-color: $background-2;
+}
+
+%button-1-shared-hover {
+  background-color: $background-3;
+  color: $foreground-2;
+	border-color: $background-3;
+	box-shadow: 0 0 0 0.15rem $background-3;
+}
+
+%button-2-shared {
+  background-color: inherit!important;
+  box-shadow: none;
+}
+
+%button-2-shared-hover {
+  box-shadow: 0 0 0 0.15rem;
+}
+
+%button-3-shared {
+  background-color: inherit!important;
+  border-style: none;
+  box-shadow: none;
+}
+
+.btn-round {
+	border-radius: 50%;
+}
+
+
+// List styles
+%list-item-shared {
+  border-radius: .5rem!important;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.md-list {
+  .list-group-item {
+    @extend %list-item-shared;
+  }
+
+  .md-date-li {
+    box-shadow: none!important;
+  	background-color: inherit!important;
+
+    .md-date-item {
+			@extend %list-item-shared;
+    	background-color: $background-2;
+    	color: $foreground-2;
+    }
+  }
+
+  .md-appt-li {
+    @extend %list-item-shared;
+    color: inherit!important;
+  }
+}
+
+
+// Sidebar styles
+.md-sdbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column!important;
+
+  @media (min-width: 768px) {
+    &.collapse {
+      &.no-collapse-md {
+        display: flex;
+        visibility: visible;
+      }
+    }
+  }
+
+  .nav {
+  	background-color: inherit!important;
+
+    .nav-item {
+    	background-color: inherit;
+    	color: $foreground-2;
+      border-style: none;
+    	border-radius: 0.5rem!important;
+
+			&:hover {
+	    	background-color: $background-3;
+	    	color: $foreground-2;
+	    }
+
+      a {
+      	font-weight: bold;
+
+				&:hover {
+	      	color: $foreground-2;
+	      }
+      }
+    }
+  }
+}
+
+
+// Topbar styles
+.md-tpbar {
+	background-color: $background-1;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+
+  @media (min-width: 768px) {
+    .nav-link {
+      border-radius: 50%!important;
+    }
+  }
+
+  .md-tpbar-btn {
+  	@extend %button-1-shared;
+
+		&:hover {
+	  	@extend %button-1-shared-hover;
+	  }
+  }
+
+	.md-tpbar-acct {
+		.nav-link:focus {
+			outline-style: none!important;
+		}
+	}
+}
+
+
+// Widget styles
+.md-widget {
+	border-radius: 0.5rem!important;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+
+  .md-title {
+  	border-bottom: none!important;
+
+    .navbar-brand {
+    	font-size: 1.125rem!important;
+    }
+
+    .btn {
+    	@extend %button-2-shared;
+
+      &:hover, &:focus {
+        @extend %button-2-shared-hover;
+      }
+    }
+  }
+
+  .list-group {
+    .list-group-item:last-child {
+    	border-bottom-left-radius: 0.5rem!important;
+    	border-bottom-right-radius: 0.5rem!important;
+    }
+
+    .list-group-item {
+      .dropdown {
+        .btn {
+          @extend %button-3-shared;
+
+          &:focus {
+            @extend %button-3-shared;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Profile View styles
+.md-pfl-ovw-btn{
+	@extend %button-1-shared;
+
+  &:hover {
+  	@extend %button-1-shared-hover;
+  }
+}
+
+
+// Appointment View styles
+.md-appt-vw-date {
+	font-size: 5rem!important;
+}
+
+.md-appt-ovw-btn {
+	@extend %button-1-shared;
+
+  &:hover {
+  	@extend %button-1-shared-hover;
+  }
+}
+
+.md-appt-ovw-lv-btn {
+  @extend %button-2-shared;
+
+  &:hover {
+    @extend %button-2-shared-hover;
+  }
+}
+
+
+.md-appt {
+	&.md-appt-li {
+		.md-appt-st, .md-appt-pmt {
+			border-radius: 0.5rem!important;
+
+			&.st-pending {
+				background-color: #FCF0C1;
+				color: #F9AE3F;
+			}
+
+			&.st-accept {
+				background-color: #E2F8E9;
+				color: #37BC64;
+			}
+
+			&.st-reject {
+				background-color: #FFF3F3;
+				color: #DE5050;
+			}
+		}
+	}
+}
+
+
+// New Appointment View styles
+.vd-nw-apt-pl {
+	position: fixed;
+	z-index: 9999;
+	max-height: 9rem;
+}
+
+
+// Chat View styles
+.md-chat {
+	.md-chat-sys {
+		border-radius: .50rem!important;
+		background-color: $background-2;
+		color: $foreground-2;
+	}
+
+	.md-chat-msg {
+		width: auto;
+		border-radius: .50rem!important;
+
+		&.md-chat-in {
+			background-color: $background-chat-in;
+			color: $foreground-0;
+		}
+
+		&.md-chat-out {
+			background-color: $background-chat-out;
+			color: $foreground-0;
+		}
+
+		p {
+			color: inherit!important;
+			overflow-wrap: break-word!important;
+		  word-wrap: break-word!important;
+		  word-break: break-all!important;
+		  hyphens: auto;
+		}
+
+		small {
+			color: inherit!important;
+		}
+	}
+}
+
+.md-chat-inpbar {
+	background-color: #FFFFFF;
+	box-shadow: 0 -.125rem .25rem rgba(0,0,0,.075)!important;
+
+	.md-send-form {
+		.md-btn-send {
+			@extend %button-1-shared;
+
+		  &:hover, &:focus {
+		  	@extend %button-1-shared-hover;
+		  }
+		}
+	}
+}
+
+
+// Profile picture styles
+.md-pfl-pic {
+	object-fit: cover;
+	border-radius: 0.5rem!important;
+
+	&.md-pfl-bg {
+		width: 170px!important;
+		height: 170px!important;
+	}
+
+	&.md-pfl-sm {
+		width: 50px!important;
+		height: 50px!important;
+	}
+
+	&.md-pfl-xs {
+		width: 36px!important;
+		height: 36px!important;
+	}
+
+	&.md-pfl-round {
+		border-radius: 50%!important;
+	}
+}
