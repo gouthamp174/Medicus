@@ -80,7 +80,7 @@ export default class UserDAO {
           firstName: firstName,
           lastName: lastName,
           isPhysician: Boolean(isPhysician),
-          profilePhotoId: (profilePhoto) ? ObjectId(profilePhoto): null,
+          profilePhotoId: (profilePhotoId) ? ObjectId(profilePhotoId): null,
           dob: new Date(dob),
           gender: gender,
           emailId: "",

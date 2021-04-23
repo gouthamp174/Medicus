@@ -9,6 +9,7 @@ import { Genders, GenderInput, Qualifications, QualificationInput,
 export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
+    this.closeButtonRef = React.createRef();
     const today = new Date();
 
     this.state = {
@@ -73,6 +74,7 @@ export default class RegisterForm extends React.Component {
         throw new Error(data.message);
       }
 
+      this.closeButtonRef.current.click();
       await this.props.signIn(this.state.username, this.state.password);
     } catch (err) {
       console.error(`Failed to register new user. ${err}`);
@@ -99,7 +101,8 @@ export default class RegisterForm extends React.Component {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title font-weight-bold" id="registerModalTitle">Register today.</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button ref={this.closeButtonRef} type="button" class="close"
+                  data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>

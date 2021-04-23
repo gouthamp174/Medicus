@@ -226,7 +226,7 @@ var UserDAO = /*#__PURE__*/function () {
                   firstName: firstName,
                   lastName: lastName,
                   isPhysician: Boolean(isPhysician),
-                  profilePhotoId: profilePhoto ? (0, _mongodb.ObjectId)(profilePhoto) : null,
+                  profilePhotoId: profilePhotoId ? (0, _mongodb.ObjectId)(profilePhotoId) : null,
                   dob: new Date(dob),
                   gender: gender,
                   emailId: "",
