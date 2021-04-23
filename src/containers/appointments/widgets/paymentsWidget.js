@@ -10,7 +10,7 @@ function DefaultPaymentItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Make a new payment</Col>
+          <Col className="md-font-sm text-center text-muted">No payment available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

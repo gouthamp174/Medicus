@@ -12,7 +12,7 @@ function Title(props) {
   return (
     <Row>
       <Col>
-        <h4 className="my-0">{props.children}</h4>
+        <h4 className="my-0 text-center text-sm-left">{props.children}</h4>
       </Col>
     </Row>
   );
@@ -122,41 +122,47 @@ function OptionsBar(props) {
 export default function OverviewWidget(props) {
   return (
     <InfoWidget>
-      <div className="media">
-        {(Object.keys(props.user).length) ?
-          <ProfilePhoto
-            className="d-none d-md-inline align-self-start mx-3 md-pfl-bg"
-            session={props.session}
-            user={props.user}
-          /> :
-          <div className="d-none d-md-inline align-self-start mx-3">
-            Loading...
-          </div>
-        }
-        <FluidContainer className="media-body">
-          <Title>{getUserFullName(props.user)}</Title>
-          <SubTitle className="text-muted mb-3">
-            <Username user={props.user} />
-          </SubTitle>
-          <InfoRow
-            icon="person"
-            content={<BioData user={props.user} />}
-          />
-          <InfoRow
-            icon="email"
-            content={<Email user={props.user} />}
-          />
-          <InfoRow
-            icon="call"
-            content={<PhoneNumber user={props.user} />}
-          />
-          <RowDivider className="my-2" />
-          <OptionsBar
-            session={props.session}
-            user={props.user}
-          />
-        </FluidContainer>
-      </div>
+      <FluidContainer>
+        <Row>
+          <Col className="col-12 col-sm-auto py-2 d-flex justify-content-center">
+            {(Object.keys(props.user).length) ?
+              <ProfilePhoto
+                className="align-self-start md-pfl-bg"
+                session={props.session}
+                user={props.user}
+              /> :
+              <div className="d-none d-md-inline align-self-start mx-3">
+                Loading...
+              </div>
+            }
+          </Col>
+          <Col className="col-12 col-sm">
+            <FluidContainer>
+              <Title>{getUserFullName(props.user)}</Title>
+              <SubTitle className="text-muted text-center text-sm-left mb-3">
+                <Username user={props.user} />
+              </SubTitle>
+              <InfoRow
+                icon="person"
+                content={<BioData user={props.user} />}
+              />
+              <InfoRow
+                icon="email"
+                content={<Email user={props.user} />}
+              />
+              <InfoRow
+                icon="call"
+                content={<PhoneNumber user={props.user} />}
+              />
+              <RowDivider className="my-2" />
+              <OptionsBar
+                session={props.session}
+                user={props.user}
+              />
+            </FluidContainer>
+          </Col>
+        </Row>
+      </FluidContainer>
     </InfoWidget>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Link } from "react-router-dom";
 import { Row, Col, RowDivider } from "../../components/layout.js";
 import { NavList, NavListItem } from "../../components/list.js";
+import { LgIcon } from "../../components/icons.js";
 import { AppLogo } from "../../components/utils.js";
 import { SideBarLink, SignOutLink } from "./links.js";
 
@@ -44,8 +45,10 @@ export default class SideBar extends React.Component {
           <Link to="/" className="navbar-brand">
             <AppLogo />
           </Link>
-          <button className="btn btn-sm d-md-none" type="button" data-toggle="collapse" data-target="#sidebar1" aria-controls="sidebar1" aria-expanded="false" aria-label="Toggle Side bar navigation">
-            <i className="material-icons md-24">clear</i>
+          <button className="btn btn-sm btn-round md-sdbar-btn d-flex align-items-center p-2 d-md-none"
+            type="button" data-toggle="collapse" data-target="#sidebar1"
+              aria-controls="sidebar1" aria-expanded="false" aria-label="Toggle Side bar navigation">
+            <LgIcon>clear</LgIcon>
           </button>
         </header>
         <Row className="flex-grow-1">
@@ -70,7 +73,13 @@ export default class SideBar extends React.Component {
         <Row>
           <Col>
             <NavList className="flex-column my-1">
-              <SideBarLink path="/settings" exact={false} icon="settings" title="Settings" />
+              <SideBarLink
+                path="/settings"
+                exact={false}
+                icon="settings"
+                title="Settings"
+                handleClick={this.handleClick}
+              />
               <SideBarLink icon="logout" title="Sign Out" handleClick={this.props.signOut} />
             </NavList>
           </Col>

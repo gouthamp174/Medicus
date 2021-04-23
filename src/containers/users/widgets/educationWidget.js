@@ -11,7 +11,7 @@ function DefaultDegreeItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new education</Col>
+          <Col className="md-font-sm text-center text-muted">No education available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

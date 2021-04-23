@@ -10,7 +10,7 @@ function DefaultServiceItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new medical service</Col>
+          <Col className="md-font-sm text-center text-muted">No medical service available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

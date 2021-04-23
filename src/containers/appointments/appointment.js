@@ -33,7 +33,7 @@ function StatusIndicator(props) {
   return (
     <div className={`md-appt-st ${colorClass} d-flex justify-content-center align-items-center p-1`}>
       <MdIcon>event</MdIcon>
-      <p className="ml-1 md-font-sm font-weight-bold my-0">{props.status}</p>
+      <p className="ml-1 md-font-sm font-weight-bold my-0 d-none d-sm-inline">{props.status}</p>
     </div>
   );
 }
@@ -89,7 +89,7 @@ export function AppointmentListItem(props) {
         className="md-appt md-appt-li px-3 my-1">
         <FluidContainer>
           <Row>
-            <Col className="col-2 col-md-2 col-lg-2 col-xl-1 p-0 align-self-center">
+            <Col className="col-auto col-sm-2 col-md-2 col-lg-2 col-xl-1 p-0 align-self-center">
               <h6 className="text-center my-0">{getTimeInString(startTime)}</h6>
             </Col>
             <Col className="col-md-2 col-lg-2 col-xl-2 p-0 d-none d-md-inline align-self-center">
@@ -98,11 +98,11 @@ export function AppointmentListItem(props) {
                 <p className="md-font-sm text-center text-muted my-0">{endDate}</p>
               }
             </Col>
-            <Col className="col-6 col-md-5 col-lg-4 col-xl-4">
+            <Col className="col-sm-6 col-md-5 col-lg-4 col-xl-4">
               <h6 className="text-truncate my-0">{displayName}</h6>
               <p className="md-font-sm text-truncate text-muted my-0">{props.appointment.title}</p>
             </Col>
-            <Col className="col-4 col-md-3 col-lg-4 col-xl-3 align-self-center">
+            <Col className="col-auto col-sm-4 col-md-3 col-lg-4 col-xl-3 align-self-center">
               <Row>
                 <Col className="align-self-center">
                   <StatusIndicator status={props.appointment.status} />

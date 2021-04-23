@@ -62,13 +62,13 @@ form .form-row:focus-within > .form-group > .help-text, form .form-group:focus-w
   display: block;
 }
 
-.md-chat-inpbar .md-send-form .md-btn-send, .md-appt-ovw-btn, .md-pfl-ovw-btn, .md-tpbar .md-tpbar-btn {
+.md-chat-inpbar .md-send-form .md-btn-send, .md-appt-ovw-btn, .md-pfl-ovw-btn, .md-tpbar .md-tpbar-btn, .md-sdbar .md-sdbar-btn {
   background-color: #1264A3 !important;
   color: #FFFFFF !important;
   border-color: #1264A3 !important;
 }
 
-.md-chat-inpbar .md-send-form .md-btn-send:hover, .md-chat-inpbar .md-send-form .md-btn-send:focus, .md-appt-ovw-btn:hover, .md-pfl-ovw-btn:hover, .md-tpbar .md-tpbar-btn:hover {
+.md-chat-inpbar .md-send-form .md-btn-send:hover, .md-chat-inpbar .md-send-form .md-btn-send:focus, .md-appt-ovw-btn:hover, .md-pfl-ovw-btn:hover, .md-tpbar .md-tpbar-btn:hover, .md-sdbar .md-sdbar-btn:hover {
   background-color: #53AAEC !important;
   color: #FFFFFF !important;
   border-color: #53AAEC !important;

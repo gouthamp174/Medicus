@@ -178,6 +178,14 @@ form {
     }
   }
 
+	.md-sdbar-btn {
+		@extend %button-1-shared;
+
+		&:hover {
+	  	@extend %button-1-shared-hover;
+	  }
+	}
+
   .nav {
   	background-color: inherit!important;
 

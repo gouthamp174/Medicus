@@ -11,7 +11,7 @@ function DefaultInsuranceItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new insurance</Col>
+          <Col className="md-font-sm text-center text-muted">No insurance available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

@@ -10,7 +10,7 @@ function DefaultMedicationItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new medication</Col>
+          <Col className="md-font-sm text-center text-muted">No medication available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

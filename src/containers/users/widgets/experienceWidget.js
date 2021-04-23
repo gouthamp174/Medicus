@@ -11,7 +11,7 @@ function DefaultJobItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new experience</Col>
+          <Col className="md-font-sm text-center text-muted">No experience available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

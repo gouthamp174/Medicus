@@ -11,7 +11,7 @@ function DefaultReportItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new lab report</Col>
+          <Col className="md-font-sm text-center text-muted">No report available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>

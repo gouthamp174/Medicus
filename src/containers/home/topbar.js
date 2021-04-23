@@ -81,13 +81,13 @@ export function TopBar(props) {
       <Col className="p-0">
         <nav className="navbar navbar-expand-md navbar-light rounded justify-content-md-between">
           <button type="button" data-toggle="collapse" data-target="#sidebar1"
-            className="navbar-toggler btn-round md-tpbar-btn d-flex align-items-center px-2 d-inline d-md-none"
+            className="navbar-toggler btn-round md-tpbar-btn d-flex align-items-center p-2 d-inline d-md-none"
               aria-controls="sidebar1" aria-expanded="false" aria-label="Toggle Side bar navigation">
             <LgIcon>menu</LgIcon>
           </button>
           <span className="navbar-brand">{props.title}</span>
           <button type="button" data-toggle="collapse" data-target="#topNavbar1"
-            className="navbar-toggler btn-round md-tpbar-btn d-flex align-items-center px-2 d-inline d-md-none"
+            className="navbar-toggler btn-round md-tpbar-btn d-flex align-items-center p-2 d-inline d-md-none"
               aria-controls="topNavbar1" aria-expanded="false" aria-label="Toggle Topbar navigation">
             <LgIcon>more_vert</LgIcon>
           </button>

@@ -11,7 +11,7 @@ function DefaultNoteItem(props) {
     <WidgetListItem>
       <FluidContainer>
         <Row>
-          <Col className="md-font-sm text-center text-muted">Add a new note</Col>
+          <Col className="md-font-sm text-center text-muted">No note available</Col>
         </Row>
       </FluidContainer>
     </WidgetListItem>
