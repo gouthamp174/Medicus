@@ -424,7 +424,7 @@ export default class UserController {
         username: username
       }
 
-      const services = await ServiceDAO.getServices({filter: filter, page: page, limit: limit})
+      const services = await ServiceDAO.getServices({filter: filter, page: page, limit: limit, reverse: true})
       res.json(services.map(item => {
         const service = new Service(item)
         return service.toJson()
@@ -571,7 +571,7 @@ export default class UserController {
       }
 
       const filter = {
-        username: username
+        fromUsername: username
       }
 
       const payments = await PaymentDAO.getPayments({filter: filter, page: page, limit: limit})
@@ -597,10 +597,10 @@ export default class UserController {
       }
 
       const filter = {
-        username: username
+        toUsername: username
       }
 
-      const medications = await MedicationDAO.getMedications({filter: filter, page: page, limit: limit})
+      const medications = await MedicationDAO.getMedications({filter: filter, page: page, limit: limit, reverse: true})
       res.json(medications.map(item => {
         const medication = new Medication(item)
         return medication.toJson()
@@ -623,10 +623,10 @@ export default class UserController {
       }
 
       const filter = {
-        username: username
+        fromUsername: username
       }
 
-      const labReports = await LabReportDAO.getLabReports({filter: filter, page: page, limit: limit})
+      const labReports = await LabReportDAO.getLabReports({filter: filter, page: page, limit: limit, reverse: true})
       res.json(labReports.map(item => {
         const labReport = new LabReport(item)
         return labReport.toJson()

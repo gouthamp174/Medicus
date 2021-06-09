@@ -86,7 +86,7 @@ export default class AppointmentController {
             },
             { startTime: {$lte: currentTime} },
             { endTime: {$gt: currentTime} },
-            { status: {$ne: "Completed"} }
+            { status: {$ne: "Done"} }
           ]
         }
 
@@ -99,7 +99,7 @@ export default class AppointmentController {
                 { "physician.username": session.username }
               ]
             },
-            { status: "Completed" }
+            { status: "Done" }
           ]
         }
 
@@ -306,7 +306,7 @@ export default class AppointmentController {
       const filter = {
         appointmentId: ObjectId(appointment._id)
       }
-      const notes = await NoteDAO.getNotes({filter: filter, page: page, limit: limit})
+      const notes = await NoteDAO.getNotes({filter: filter, page: page, limit: limit, reverse: true})
 
       res.json(notes.map(item => {
         const note = new Note(item)
@@ -329,6 +329,7 @@ export default class AppointmentController {
       }
 
       const response = await NoteDAO.addNote({
+        fromUsername: noteInfo.fromUsername,
         appointmentId: ObjectId(appointment._id),
         title: noteInfo.title,
         content: noteInfo.content,
@@ -386,7 +387,7 @@ export default class AppointmentController {
         appointmentId: ObjectId(appointment._id)
       }
 
-      const payments = await PaymentDAO.getPayments({filter: filter, page: page, limit: limit})
+      const payments = await PaymentDAO.getPayments({filter: filter, page: page, limit: limit, reverse: true})
       res.json(payments.map(item => {
         const payment = new Payment(item)
         return payment.toJson()
@@ -420,10 +421,11 @@ export default class AppointmentController {
       }
 
       const addResponse = await PaymentDAO.addPayment({
-        username: paymentInfo.username,
+        fromUsername: paymentInfo.fromUsername,
+        toUsername: paymentInfo.toUsername,
+        appointmentId: ObjectId(appointment._id),
         amount: amountAsNumber,
-        date: new Date(paymentInfo.date),
-        appointmentId: ObjectId(appointment._id)
+        date: new Date(paymentInfo.date)
       })
       if (!addResponse.success) {
         throw new Error(addResponse.error)
@@ -493,7 +495,7 @@ export default class AppointmentController {
         appointmentId: ObjectId(appointment._id)
       }
 
-      const medications = await MedicationDAO.getMedications({filter: filter, page: page, limit: limit})
+      const medications = await MedicationDAO.getMedications({filter: filter, page: page, limit: limit, reverse: true})
       res.json(medications.map(item => {
         const medication = new Medication(item)
         return medication.toJson()
@@ -518,10 +520,11 @@ export default class AppointmentController {
       }
 
       const response = await MedicationDAO.addMedication({
-        username: medicationInfo.username,
+        fromUsername: medicationInfo.fromUsername,
+        toUsername: medicationInfo.toUsername,
+        appointmentId: ObjectId(appointment._id),
         name: medicationInfo.name,
-        dosage: medicationInfo.dosage,
-        appointmentId: ObjectId(appointment._id)
+        dosage: medicationInfo.dosage
       })
       if (!response.success) {
         throw new Error(response.error)
@@ -575,7 +578,7 @@ export default class AppointmentController {
         appointmentId: ObjectId(appointment._id)
       }
 
-      const labReports = await LabReportDAO.getLabReports({filter: filter, page: page, limit: limit})
+      const labReports = await LabReportDAO.getLabReports({filter: filter, page: page, limit: limit, reverse: true})
       res.json(labReports.map(item => {
         const labReport = new LabReport(item)
         return labReport.toJson()
@@ -600,10 +603,10 @@ export default class AppointmentController {
       }
 
       const response = await LabReportDAO.addLabReport({
-        username: labReportInfo.username,
+        fromUsername: labReportInfo.fromUsername,
+        appointmentId: ObjectId(appointment._id),
         name: labReportInfo.name,
-        date: labReportInfo.date,
-        appointmentId: ObjectId(appointment._id)
+        date: labReportInfo.date
       })
       if (!response.success) {
         throw new Error(response.error)

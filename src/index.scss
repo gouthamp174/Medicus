@@ -1,0 +1,509 @@
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-size: 0.9375rem;
+
+$background-0: #ECEEF0;
+$background-1: #FFFFFF;
+$background-2: #1264A3!important;
+$background-3: #53AAEC!important;
+
+$foreground-0: #1D1B30!important;
+$foreground-2: #FFFFFF!important;
+$foreground-3: #1264A3!important;
+
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  color: #1D1B30 !important;
+  font-family: $font-stack;
+  font-size: $font-size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+//Global overflow styles
+.overflow-y {
+  overflow-y: scroll!important;
+}
+
+// Global Font styles
+.text-break {
+	overflow-wrap: break-word!important;
+}
+
+.md-font-xl {
+  font-size: 150%;
+}
+
+.md-font-lg {
+  font-size: 125%;
+}
+
+.md-font-sm {
+	font-size: 90%;
+}
+
+.md-font-xs {
+	font-size: 80%;
+}
+
+// Component styles
+// =====================================
+// Global Icon styles
+.material-icons {
+  &.md-16 {
+    font-size: 16px;
+  }
+
+  &.md-18 {
+    font-size: 18px;
+  }
+
+  &.md-20 {
+    font-size: 20px;
+  }
+
+  &.md-24 {
+    font-size: 24px;
+  }
+}
+
+
+// Global 'a' link style
+a {
+	color: inherit;
+}
+
+
+// Global custom styles
+.rounded {
+  border-radius: 0.5rem!important;
+}
+
+// Global card styles
+.card.rounded {
+  .card-header {
+    border-top-left-radius: 0.5rem!important;
+    border-top-right-radius: 0.5rem!important;
+  }
+
+  .card-footer {
+    border-bottom-left-radius: 0.5rem!important;
+    border-bottom-right-radius: 0.5rem!important;
+  }
+}
+
+
+// Global button styles
+%button-borderless {
+  outline: none;
+  box-shadow: none;
+}
+
+%button-round { 
+  border-radius: 50%!important;
+}
+
+%button-1-shared {
+  background-color: $background-2;
+  color: $foreground-2;
+}
+
+%button-1-shared-hover {
+  background-color: $background-3;
+  color: $foreground-2;
+}
+
+%button-2-shared {
+  background-color: inherit!important;
+  color: inherit!important;
+}
+
+%button-2-shared-hover {
+  background-color: $background-3;
+  color: $foreground-2;
+}
+
+
+// Profile picture styles
+.md-pfl-pic {
+	object-fit: cover;
+	border-radius: 0.5rem!important;
+
+	&.md-pfl-bg {
+		width: 170px!important;
+		height: 170px!important;
+	}
+
+	&.md-pfl-sm {
+		width: 50px!important;
+		height: 50px!important;
+	}
+
+	&.md-pfl-xs {
+		width: 36px!important;
+		height: 36px!important;
+	}
+
+	&.md-pfl-round {
+		border-radius: 50%!important;
+	}
+}
+
+
+// List styles
+.md-list {
+  .list-group-item {
+    border-radius: 0.25rem!important;
+  }
+}
+
+
+// Container styles
+// =====================================
+
+// Loading style
+@keyframes loading-ellipsis {
+  0% { opacity: 0.1; }
+  40% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0.1; }
+}
+
+.md-loader {
+  .md-ellipsis {
+    height: 9px;
+    width: 9px;
+    background-color: $background-2;
+    border-radius: 50%!important;
+    animation-name: loading-ellipsis;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+  }
+
+  #ellipsis01 { animation-delay: 0s; }
+  #ellipsis02 { animation-delay: 0.15s; }
+  #ellipsis03 { animation-delay: 0.3s; }
+}
+
+
+// Welcome page styles
+.md-wc-hbar, .md-wc-cbar {
+  background-color: $background-2;
+}
+
+.md-wc-banner {
+  color: $foreground-2;
+}
+
+
+// Sidebar styles
+%sdbar-link {
+  background-color: inherit;
+  color: $foreground-2;
+  border-style: none;
+}
+
+%sdbar-link-hover {
+  background-color: $background-3;
+}
+
+.md-sdbar {
+  background-color: $background-2;
+  color: $foreground-2;
+
+  .md-btn {
+    @extend %button-round;
+    @extend %sdbar-link;
+
+    &:hover, &:focus {
+      @extend %sdbar-link-hover;
+    }
+  }
+
+  .md-links {
+    background-color: inherit!important;
+
+    .md-link {
+      @extend %sdbar-link;
+
+      &:hover, &:focus {
+	    	@extend %sdbar-link-hover;
+	    }
+    }
+  }
+}
+
+.md-mdl-sdbar {
+  .modal-dialog {
+    width: 80%;
+  }
+}
+
+
+// Title bar styles
+.md-tbar {
+	background-color: $background-1;
+
+  .navbar-toggler, .dropdown-toggle {
+    @extend %button-borderless;
+  }
+
+  .md-btn {
+    @extend %button-round;
+    @extend %button-1-shared;
+
+		&:hover, &:focus {
+	  	@extend %button-1-shared-hover;
+	  }
+
+    &::after {
+      content: unset;
+    }
+
+    @media (max-width: 768px) {
+      &.nav-link {
+        border-radius: initial!important;
+      }
+    }
+  }
+
+  .md-mi {
+    &:hover, &:focus {
+      @extend %button-1-shared-hover;
+    }
+  }
+}
+
+
+// Subtitle Bar styles
+.md-sbtbar {
+  background-color: inherit!important;
+  overflow: auto;
+  flex-wrap: nowrap!important;
+
+  .md-sbtbar-link {    
+		&:hover, &:focus, &.active {
+	  	@extend %button-1-shared-hover;
+	  }
+  }
+}
+
+
+// Widget styles
+.md-widget {
+	border-radius: 0.5rem!important;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+
+  .md-title {
+    background-color: inherit!important;
+    border-top-left-radius: 0.5rem!important;
+    border-top-right-radius: 0.5rem!important;
+
+    .navbar-brand {
+    	font-size: 1.125rem!important;
+    }
+
+    .btn {
+      @extend %button-round;
+      @extend %button-borderless;
+    	@extend %button-2-shared;
+
+      &:hover, &:focus {
+        @extend %button-2-shared-hover;
+      }
+    }
+  }
+
+  .list-group {
+    .list-group-item:last-child {
+    	border-bottom-left-radius: 0.5rem!important;
+    	border-bottom-right-radius: 0.5rem!important;
+    }
+
+    .list-group-item {
+      .dropdown {
+        .btn {
+          @extend %button-round;
+          @extend %button-borderless;
+          @extend %button-2-shared;
+
+          &:hover, &:focus {
+            @extend %button-2-shared-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// User View styles
+.md-usr {
+  // Banner
+  .md-banner {
+    .card-footer {
+      background-color: inherit!important;
+    }
+  }
+}
+
+
+// Appointment View styles
+.md-appt {
+  // Status Indicator
+  .md-appt-st {
+    &.st-pending {
+      color: #F9AE3F;
+    }
+
+    &.st-accept {
+      color: #37BC64;
+    }
+
+    &.st-reject {
+      color: #DE5050;
+    }
+
+    &.st-done {
+      color: #6c757d;
+    }
+
+    &.md-appt-st-ind {
+      color: inherit;
+      border-top-left-radius: 0.18rem!important;
+      border-bottom-left-radius: 0.18rem!important;
+
+      &.st-pending {
+        background-color: #F9AE3F;
+      }
+  
+      &.st-accept {
+        background-color: #37BC64;
+      }
+  
+      &.st-reject {
+        background-color: #DE5050;
+      }
+
+      &.st-done {
+        background-color: #6c757d;
+      }
+    }
+  }
+
+  // Banner
+  .md-banner {
+    .card-header {
+      background-color: inherit!important;
+      border-bottom: none;
+    }
+
+    .card-footer {
+      background-color: inherit!important;
+    }
+  }
+
+  // Manage Dropdown
+  .md-mgbar {
+    .btn {
+      @extend %button-borderless;
+      @extend %button-2-shared;
+
+      &:hover, &:focus {
+        @extend %button-2-shared-hover;
+      }
+
+      &.md-toggle {
+        border-radius: 50%!important;
+      }
+    }
+  }
+}
+
+
+// New Appointment styles
+.md-nw-appt {
+  .md-nw-appt-pgbar {
+    height: 3px;
+  }
+
+  .md-phy-list {
+    position: absolute!important;
+    z-index: 1000;
+    left: 0;
+    width: 100%;
+    max-height: 9rem;
+  }
+}
+
+
+// Chat View styles
+$chat-background: $background-0;
+$chat-sys-background: #C1C8CF78!important;
+$chat-out-background: $background-2;
+$chat-in-background: $background-1;
+
+.md-chat {
+  .md-msg-window {
+    background-color: $chat-background;
+
+    .md-chat-sys {
+      border-radius: .50rem!important;
+      background-color: $chat-sys-background;
+      color: $foreground-2;
+      opacity: 0.75;
+    }
+
+    .md-chat-msg {
+      width: auto;
+      border-radius: .50rem!important;
+  
+      &.md-chat-in {
+        background-color: $chat-in-background;
+        color: $foreground-0;
+      }
+  
+      &.md-chat-out {
+        background-color: $chat-out-background;
+        color: $foreground-2;
+      }
+  
+      p {
+        color: inherit!important;
+        overflow-wrap: break-word!important;
+        word-wrap: break-word!important;
+        word-break: break-all!important;
+        hyphens: auto;
+      }
+  
+      small {
+        color: inherit!important;
+      }
+    }
+  }
+
+  .md-sbar {
+    background-color: $background-1;
+
+    .md-btn {
+      @extend %button-round;
+      @extend %button-borderless;
+      @extend %button-1-shared;
+
+      &:hover, &:focus {
+        @extend %button-1-shared-hover;
+      }
+    }
+  }
+}

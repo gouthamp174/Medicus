@@ -1,39 +1,55 @@
 import React from 'react';
-import { Switch, Route, useRouteMatch } from "react-router-dom";
-import { SessionContext } from '../../context/context.js';
-import { FluidContainer, Row, Col } from "../../components/layout.js";
-import { TopBar } from '../home/topbar.js';
+import { useSelector } from 'react-redux';
+import { Col, FluidContainer, Row } from '../../components/layout';
+import { WidgetRow } from '../../components/widgets';
 
-import SettingsView from "./settingsView.js";
+import TitleBar from '../home/titleBar';
+import AccountInformationWidget from './widgets/accountInformation';
+import DeleteUserWidget from './widgets/deleteUser';
+import PasswordWidget from './widgets/password';
+import PhysicianInformationWidget from './widgets/physicianInformation';
+import ProfilePhotoWidget from './widgets/profilePhoto';
 
 
-export default class SettingsApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default function SettingsApp(props) {
+    const session = useSelector(s => s.session);
 
-  render() {
     return (
-      <FluidContainer className="h-100 overflow-y d-flex flex-column">
-        <TopBar title="Settings" />
-        <Row className="flex-grow-1">
-          <Col className="py-3">
-            <SessionContext.Consumer>
-              {sessionCtx => (
-                <Switch>
-                  <Route
-                    path={this.props.match.path}
-                    exact={true}
-                    render={(props) => (
-                      <SettingsView {...props} session={sessionCtx.session} setSession={sessionCtx.setSession} />
-                    )}
-                  />
-                </Switch>
-              )}
-            </SessionContext.Consumer>
-          </Col>
-        </Row>
-      </FluidContainer>
+        <>
+            <TitleBar title="Settings" />
+            <Row className="flex-grow-1">
+                <Col className="pt-3">
+                    <FluidContainer>
+                        <WidgetRow>
+                            <Col>
+                                <AccountInformationWidget />
+                            </Col>
+                        </WidgetRow>
+                        <WidgetRow>
+                            <Col>
+                                <ProfilePhotoWidget />
+                            </Col>
+                        </WidgetRow>
+                        <WidgetRow>
+                            <Col>
+                                <PasswordWidget />
+                            </Col>
+                        </WidgetRow>
+                        {session.isPhysician &&
+                            <WidgetRow>
+                                <Col>
+                                    <PhysicianInformationWidget />
+                                </Col>
+                            </WidgetRow>
+                        }
+                        <WidgetRow>
+                            <Col>
+                                <DeleteUserWidget />
+                            </Col>
+                        </WidgetRow>
+                    </FluidContainer>
+                </Col>
+            </Row>
+        </>
     );
-  }
 }

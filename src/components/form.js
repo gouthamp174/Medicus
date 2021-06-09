@@ -1,122 +1,81 @@
 import React from 'react';
+import { useExtendClass } from "./hooks.js";
 
+
+/* Form layout components */
 export function Form(props) {
-  let className="";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
+    const enctype = (props.enctype) ? props.enctype: "application/x-www-form-urlencoded";
 
-  let enctype = "application/x-www-form-urlencoded";
-  if (props.enctype) {
-    enctype = props.enctype;
-  }
-
-  return (
-    <form method="post" autoComplete={props.autoComplete} className={className}
-      onSubmit={props.handleSubmit} enctype={enctype}>
-      {props.children}
-    </form>
-  );
+    return (
+      <form method="post" autoComplete={props.autoComplete} enctype={enctype}
+        className={useExtendClass("", props.className)} onSubmit={props.handleSubmit}>
+        {props.children}
+      </form>
+    );
 }
 
-export function FormRow(props) {
-  let className="form-row";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
 
-  return (
-    <div className={className}>
-      {props.children}
-    </div>
-  );
+export function FormRow(props) {  
+    return (
+      <div className={useExtendClass("form-row", props.className)}>
+        {props.children}
+      </div>
+    );
 }
 
-export function FormGroup(props) {
-  let className="form-group";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
 
-  return (
-    <div className={className}>
-      {props.children}
-    </div>
-  );
+export function FormGroup(props) {  
+    return (
+      <div className={useExtendClass("form-group", props.className)}>
+        {props.children}
+      </div>
+    );
 }
 
-export function FormGroupRow(props) {
-  let className="form-group row";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
 
-  return (
-    <div className={className}>
-      {props.children}
-    </div>
-  );
+/* Form element components. */
+export function FormButton(props) {  
+    return (
+      <button type={(props.type) ? props.type: "button"} disabled={props.disabled}
+        className={useExtendClass("btn", props.className)} onClick={props.handleClick}>
+        {props.children}
+      </button>
+    );
 }
 
-export function FormButton(props) {
-  let className="btn";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
-
-  return (
-    <button type="button" className={className}>
-      {props.children}
-    </button>
-  );
-}
 
 export function FormSubmit(props) {
-  let className="btn btn-primary";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
-
-  return (
-    <button type="submit" className={className} disabled={props.disabled}>
-      {props.children}
-    </button>
-  );
+    return (
+      <FormButton type="submit" disabled={props.disabled}
+        className={useExtendClass("btn-primary", props.className)}>
+        {props.children}
+      </FormButton>
+    );
 }
 
-export function FormText(props) {
-  let className="form-control-plaintext";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
 
-  return (
-    <input type="text" id={props.id} className={className} value={props.value} readOnly />
-  );
+export function FormText(props) {  
+    return (
+      <input type="text" id={props.id} value={props.value} readOnly 
+          className={useExtendClass("form-control-plaintext", props.className)}
+      />
+    );
 }
 
-export function FormLabel(props) {
-  let className="col-form-label";
-  if (props.className) {
-    className = className.concat(" ", props.className)
+
+export function FormLabel(props) {  
+    return (
+      <label htmlFor={props.for} className={useExtendClass("col-form-label", props.className)}>
+        {props.children}
+      </label>
+    );
   }
 
-  return (
-    <label htmlFor={props.for} className={className}>
-      {props.children}
-    </label>
-  );
-}
 
-export function FormLegend(props) {
-  let className="col-form-label";
-  if (props.className) {
-    className = className.concat(" ", props.className)
-  }
-
-  return (
-    <legend htmlFor={props.for} className={className}>
-      {props.children}
-    </legend>
-  );
+export function FormLegend(props) {  
+    return (
+      <legend htmlFor={props.for} className={useExtendClass("col-form-label", props.className)}>
+        {props.children}
+      </legend>
+    );
 }

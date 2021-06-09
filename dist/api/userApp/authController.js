@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -33,17 +33,17 @@ var _models = require("../models");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 // Hash algorithm for user passwords.
 var hashPassword = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(password) {
-    return _regenerator["default"].wrap(function _callee$(_context) {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(password) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _bcryptjs["default"].hash(password, 10);
+            return _bcryptjs.default.hash(password, 10);
 
           case 2:
             return _context.abrupt("return", _context.sent);
@@ -63,15 +63,15 @@ var hashPassword = /*#__PURE__*/function () {
 
 var AuthController = /*#__PURE__*/function () {
   function AuthController() {
-    (0, _classCallCheck2["default"])(this, AuthController);
+    (0, _classCallCheck2.default)(this, AuthController);
   }
 
-  (0, _createClass2["default"])(AuthController, null, [{
+  (0, _createClass2.default)(AuthController, null, [{
     key: "register",
     value: function () {
-      var _register = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res, next) {
+      var _register = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(req, res, next) {
         var userInfo, user, addUserResponse, sessionStartTime, addSessionResponse, session, sessionObj, authToken, userObj;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -87,7 +87,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 4:
                 _context2.next = 6;
-                return _userDAO["default"].getUser(userInfo.username);
+                return _userDAO.default.getUser(userInfo.username);
 
               case 6:
                 user = _context2.sent;
@@ -113,7 +113,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 13:
                 _context2.next = 15;
-                return _userDAO["default"].addUser({
+                return _userDAO.default.addUser({
                   username: userInfo.username,
                   password: userInfo.password,
                   firstName: userInfo.firstName,
@@ -139,7 +139,7 @@ var AuthController = /*#__PURE__*/function () {
               case 18:
                 sessionStartTime = new Date();
                 _context2.next = 21;
-                return _sessionDAO["default"].addSession(userInfo.username, sessionStartTime);
+                return _sessionDAO.default.addSession(userInfo.username, sessionStartTime);
 
               case 21:
                 addSessionResponse = _context2.sent;
@@ -153,7 +153,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 24:
                 _context2.next = 26;
-                return _sessionDAO["default"].getSession(addSessionResponse.id);
+                return _sessionDAO.default.getSession(addSessionResponse.id);
 
               case 26:
                 session = _context2.sent;
@@ -196,9 +196,9 @@ var AuthController = /*#__PURE__*/function () {
   }, {
     key: "signIn",
     value: function () {
-      var _signIn = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res, next) {
+      var _signIn = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(req, res, next) {
         var userInfo, user, userObj, passwordMatched, sessionStartTime, addSessionResponse, session, sessionObj, authToken;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -214,7 +214,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 4:
                 _context3.next = 6;
-                return _userDAO["default"].getUser(userInfo.username);
+                return _userDAO.default.getUser(userInfo.username);
 
               case 6:
                 user = _context3.sent;
@@ -244,7 +244,7 @@ var AuthController = /*#__PURE__*/function () {
               case 15:
                 sessionStartTime = new Date();
                 _context3.next = 18;
-                return _sessionDAO["default"].addSession(userInfo.username, sessionStartTime);
+                return _sessionDAO.default.addSession(userInfo.username, sessionStartTime);
 
               case 18:
                 addSessionResponse = _context3.sent;
@@ -258,7 +258,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 21:
                 _context3.next = 23;
-                return _sessionDAO["default"].getSession(addSessionResponse.id);
+                return _sessionDAO.default.getSession(addSessionResponse.id);
 
               case 23:
                 session = _context3.sent;
@@ -299,16 +299,16 @@ var AuthController = /*#__PURE__*/function () {
   }, {
     key: "signOut",
     value: function () {
-      var _signOut = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res, next) {
+      var _signOut = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(req, res, next) {
         var sessionInfo, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.prev = 0;
                 sessionInfo = req.session;
                 _context4.next = 4;
-                return _sessionDAO["default"].deleteSession(sessionInfo.id);
+                return _sessionDAO.default.deleteSession(sessionInfo.id);
 
               case 4:
                 response = _context4.sent;
@@ -352,9 +352,9 @@ var AuthController = /*#__PURE__*/function () {
   }, {
     key: "updatePassword",
     value: function () {
-      var _updatePassword = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res, next) {
+      var _updatePassword = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(req, res, next) {
         var updateInfo, newPasswordLength, user, userObj, passwordMatched, newPasswordHash, updateResponse;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -390,7 +390,7 @@ var AuthController = /*#__PURE__*/function () {
 
               case 9:
                 _context5.next = 11;
-                return _userDAO["default"].getUser(req.session.username);
+                return _userDAO.default.getUser(req.session.username);
 
               case 11:
                 user = _context5.sent;
@@ -416,7 +416,7 @@ var AuthController = /*#__PURE__*/function () {
               case 20:
                 newPasswordHash = _context5.sent;
                 _context5.next = 23;
-                return _userDAO["default"].updateUser(user.username, {
+                return _userDAO.default.updateUser(user.username, {
                   password: newPasswordHash
                 });
 
@@ -462,9 +462,9 @@ var AuthController = /*#__PURE__*/function () {
   }, {
     key: "authorizeSession",
     value: function () {
-      var _authorizeSession = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(req, res, next) {
+      var _authorizeSession = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(req, res, next) {
         var sessionJwt, decodedSession, session;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -481,7 +481,7 @@ var AuthController = /*#__PURE__*/function () {
               case 5:
                 decodedSession = _context6.sent;
                 _context6.next = 8;
-                return _sessionDAO["default"].getSession(decodedSession.id);
+                return _sessionDAO.default.getSession(decodedSession.id);
 
               case 8:
                 session = _context6.sent;
@@ -528,4 +528,4 @@ var AuthController = /*#__PURE__*/function () {
   return AuthController;
 }();
 
-exports["default"] = AuthController;
+exports.default = AuthController;

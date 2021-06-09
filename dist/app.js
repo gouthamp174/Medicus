@@ -62,18 +62,18 @@ var _appRouter = _interopRequireDefault(require("./api/appRouter"));
 
 var _chatInterface = _interopRequireDefault(require("./api/chatApp/chatInterface"));
 
-_dotenv["default"].config(); // Setting up express & must use middleware
+_dotenv.default.config(); // Setting up express & must use middleware
 
 
-var app = (0, _express["default"])();
-app.use((0, _cors["default"])());
-app.use(_express["default"].json());
+var app = (0, _express.default)();
+app.use((0, _cors.default)());
+app.use(_express.default.json());
 app.set('trust proxy', 1); // When using something like nginx or apache as a proxy
 
-app.use((0, _helmet["default"])({
+app.use((0, _helmet.default)({
   contentSecurityPolicy: {
     directives: {
-      "default-src": ["'self'", "*.bootstrapcdn.com", "*.googleapis.com", "*.gstatic.com"],
+      "default-src": ["'self'", "ws:", "*.bootstrapcdn.com", "*.googleapis.com", "*.gstatic.com"],
       "script-src": ["'self'", "*.bootstrapcdn.com", "*.cloudflare.com", "*.jquery.com", "*.googleapis.com"],
       "img-src": ["'self'", "data:", "blob:", "*.w3.org"]
     }
@@ -83,8 +83,9 @@ app.use((0, _helmet["default"])({
 
 app.use(_middlewares.notFound);
 app.use(_middlewares.errorHandler);
-app.use('/public', _express["default"]["static"](__dirname + '/../public/'));
-app.use('/api', _appRouter["default"]); // Basic Routing
+app.use('/static', _express.default.static(__dirname + '/../build/static'));
+app.use('/public', _express.default.static(__dirname + '/../build/'));
+app.use('/api', _appRouter.default); // Basic Routing
 
 app.get('/robots.txt', function (req, res) {
   return res.sendFile('robots.txt', {
@@ -93,7 +94,7 @@ app.get('/robots.txt', function (req, res) {
 });
 app.get('*', function (req, res) {
   return res.sendFile('index.html', {
-    root: __dirname + '/../public/'
+    root: __dirname + '/../build/'
   });
 }); // Establish a new connection to DB.
 
@@ -104,35 +105,35 @@ _mongodb.MongoClient.connect(process.env.DB_URI, {
   writeConcern: {
     wtimeout: 2500
   }
-})["catch"](function (err) {
+}).catch(function (err) {
   console.error(err.stack);
   process.exit(1);
 }).then( /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(client) {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
     var port, httpServer, io, server;
-    return _regenerator["default"].wrap(function _callee$(_context) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return (0, _userSchema["default"])(client);
+            return (0, _userSchema.default)(client);
 
           case 3:
             _context.next = 5;
-            return (0, _sessionSchema["default"])(client);
+            return (0, _sessionSchema.default)(client);
 
           case 5:
             _context.next = 7;
-            return (0, _appointmentSchema["default"])(client);
+            return (0, _appointmentSchema.default)(client);
 
           case 7:
             _context.next = 9;
-            return (0, _chatSchema["default"])(client);
+            return (0, _chatSchema.default)(client);
 
           case 9:
             _context.next = 11;
-            return (0, _messageSchema["default"])(client);
+            return (0, _messageSchema.default)(client);
 
           case 11:
             _context.next = 16;
@@ -146,55 +147,55 @@ _mongodb.MongoClient.connect(process.env.DB_URI, {
           case 16:
             _context.prev = 16;
             _context.next = 19;
-            return _userDAO["default"].injectDB(client);
+            return _userDAO.default.injectDB(client);
 
           case 19:
             _context.next = 21;
-            return _sessionDAO["default"].injectDB(client);
+            return _sessionDAO.default.injectDB(client);
 
           case 21:
             _context.next = 23;
-            return _appointmentDAO["default"].injectDB(client);
+            return _appointmentDAO.default.injectDB(client);
 
           case 23:
             _context.next = 25;
-            return _chatDAO["default"].injectDB(client);
+            return _chatDAO.default.injectDB(client);
 
           case 25:
             _context.next = 27;
-            return _messageDAO["default"].injectDB(client);
+            return _messageDAO.default.injectDB(client);
 
           case 27:
             _context.next = 29;
-            return _degreeDAO["default"].injectDB(client);
+            return _degreeDAO.default.injectDB(client);
 
           case 29:
             _context.next = 31;
-            return _jobDAO["default"].injectDB(client);
+            return _jobDAO.default.injectDB(client);
 
           case 31:
             _context.next = 33;
-            return _serviceDAO["default"].injectDB(client);
+            return _serviceDAO.default.injectDB(client);
 
           case 33:
             _context.next = 35;
-            return _insuranceDAO["default"].injectDB(client);
+            return _insuranceDAO.default.injectDB(client);
 
           case 35:
             _context.next = 37;
-            return _paymentDAO["default"].injectDB(client);
+            return _paymentDAO.default.injectDB(client);
 
           case 37:
             _context.next = 39;
-            return _labReportDAO["default"].injectDB(client);
+            return _labReportDAO.default.injectDB(client);
 
           case 39:
             _context.next = 41;
-            return _medicationDAO["default"].injectDB(client);
+            return _medicationDAO.default.injectDB(client);
 
           case 41:
             _context.next = 43;
-            return _noteDAO["default"].injectDB(client);
+            return _noteDAO.default.injectDB(client);
 
           case 43:
             _context.next = 48;
@@ -208,10 +209,10 @@ _mongodb.MongoClient.connect(process.env.DB_URI, {
           case 48:
             // Setting up node js server
             port = process.env.PORT || 3003;
-            httpServer = _http["default"].createServer(app);
-            io = (0, _socket["default"])(httpServer, {});
+            httpServer = _http.default.createServer(app);
+            io = (0, _socket.default)(httpServer, {});
             io.on('connection', function (socket) {
-              _chatInterface["default"].register(io, socket);
+              _chatInterface.default.register(io, socket);
             });
             server = httpServer.listen(port, function () {
               console.log("Server running on port ".concat(port, "..."));

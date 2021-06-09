@@ -1,45 +1,47 @@
 import React from 'react';
+import { useExtendClass } from './hooks';
+
 
 export function Icon(props) {
-  let className = "material-icons";
-  if (props.className) {
-    className = className.concat(" ", props.className);
-  }
-
-  return (
-    <i className={className}>{props.children}</i>
-  );
+    return (
+        <i className={useExtendClass("material-icons", props.className)}>
+            {props.children}
+        </i>
+    );
 }
+
 
 export function SmIcon(props) {
-  let className = "md-16";
-  if (props.className) {
-    className = className.concat(" ", props.className);
-  }
-
-  return (
-    <Icon className={className}>{props.children}</Icon>
-  );
+    return (
+        <Icon className={useExtendClass("md-16", props.className)}>
+            {props.children}
+        </Icon>
+    );
 }
+
 
 export function MdIcon(props) {
-  let className = "md-18";
-  if (props.className) {
-    className = className.concat(" ", props.className);
-  }
-
-  return (
-    <Icon className={className}>{props.children}</Icon>
-  );
+    return (
+        <Icon className={useExtendClass("md-18", props.className)}>
+            {props.children}
+        </Icon>
+    );
 }
 
-export function LgIcon(props) {
-  let className = "md-20";
-  if (props.className) {
-    className = className.concat(" ", props.className);
-  }
 
-  return (
-    <Icon className={className}>{props.children}</Icon>
-  );
+export function LgIcon(props) {
+    return (
+        <Icon className={useExtendClass("md-20", props.className)}>
+            {props.children}
+        </Icon>
+    );
+}
+
+
+export function XlIcon(props) {
+    return (
+        <Icon className={useExtendClass("md-24", props.className)}>
+            {props.children}
+        </Icon>
+    );
 }

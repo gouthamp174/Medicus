@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,18 +21,18 @@ var _mongodb = require("mongodb");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var UserDAO = /*#__PURE__*/function () {
   function UserDAO() {
-    (0, _classCallCheck2["default"])(this, UserDAO);
+    (0, _classCallCheck2.default)(this, UserDAO);
   }
 
-  (0, _createClass2["default"])(UserDAO, null, [{
+  (0, _createClass2.default)(UserDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -85,10 +85,10 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "getUsers",
     value: function () {
-      var _getUsers = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(_ref) {
+      var _getUsers = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {
         var _ref$filter, filter, _ref$page, page, _ref$limit, limit, cursor;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -124,10 +124,10 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "searchUsers",
     value: function () {
-      var _searchUsers = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(_ref2) {
+      var _searchUsers = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(_ref2) {
         var _ref2$filter, filter, _ref2$searchQuery, searchQuery, _ref2$page, page, _ref2$limit, limit, cursor;
 
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -173,8 +173,8 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "getUser",
     value: function () {
-      var _getUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(username) {
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _getUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(username) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -210,10 +210,10 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "addUser",
     value: function () {
-      var _addUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(_ref3) {
+      var _addUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(_ref3) {
         var username, password, firstName, lastName, isPhysician, profilePhotoId, dob, gender, _ref3$qualification, qualification, _ref3$specialization, specialization, _ref3$description, description, response;
 
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -272,8 +272,8 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteUser",
     value: function () {
-      var _deleteUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(username) {
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+      var _deleteUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(username) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -313,9 +313,9 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "updateUser",
     value: function () {
-      var _updateUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(username, updateQuery) {
+      var _updateUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(username, updateQuery) {
         var udpateResponse;
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -367,9 +367,9 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "getPhoto",
     value: function () {
-      var _getPhoto = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8(photoId) {
+      var _getPhoto = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee8(photoId) {
         var cursor, files;
-        return _regenerator["default"].wrap(function _callee8$(_context8) {
+        return _regenerator.default.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -423,14 +423,14 @@ var UserDAO = /*#__PURE__*/function () {
   }, {
     key: "deletePhoto",
     value: function () {
-      var _deletePhoto = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9(photoId) {
-        return _regenerator["default"].wrap(function _callee9$(_context9) {
+      var _deletePhoto = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee9(photoId) {
+        return _regenerator.default.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
                 _context9.prev = 0;
                 _context9.next = 3;
-                return this.gfs["delete"]((0, _mongodb.ObjectId)(photoId));
+                return this.gfs.delete((0, _mongodb.ObjectId)(photoId));
 
               case 3:
                 return _context9.abrupt("return", {
@@ -463,6 +463,6 @@ var UserDAO = /*#__PURE__*/function () {
   return UserDAO;
 }();
 
-exports["default"] = UserDAO;
-(0, _defineProperty2["default"])(UserDAO, "users", void 0);
-(0, _defineProperty2["default"])(UserDAO, "gfs", void 0);
+exports.default = UserDAO;
+(0, _defineProperty2.default)(UserDAO, "users", void 0);
+(0, _defineProperty2.default)(UserDAO, "gfs", void 0);

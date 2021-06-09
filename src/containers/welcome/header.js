@@ -1,18 +1,22 @@
 import React from 'react';
-import { AppLogo } from '../../components/utils.js';
-import { SessionContext } from '../../context/context.js';
+import { Link } from 'react-router-dom';
 
 
-export default class HeaderBar extends React.Component {
-  render() {
+export function AppLogo() {
     return (
-      <header className="row md-bg-1">
-        <nav className="col navbar navbar-expand-md navbar-dark md-bg-1">
-          <a className="navbar-brand d-inline d-md-none" href="#">
-            <AppLogo />
-          </a>
-        </nav>
-      </header>
+        <h4>medicus</h4>
     );
-  }
+}
+
+
+export default function HeaderBar(props) {
+    return (
+        <header className="row md-wc-hbar">
+            <nav className="col navbar navbar-expand-sm navbar-dark">
+                <Link to="/" className="navbar-brand d-inline d-sm-none">
+                    <AppLogo />
+                </Link>
+            </nav>
+        </header>
+    );
 }

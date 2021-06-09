@@ -18,9 +18,13 @@ export default class LabReportDAO {
     }
   }
 
-  static async getLabReports({filter={}, page=0, limit=10}) {
+  static async getLabReports({filter={}, page=0, limit=10, reverse=false}) {
     try {
-      const cursor = await this.labReports.find(filter).skip(page*limit).limit(limit)
+      const cursor = await this.labReports
+        .find(filter)
+        .sort({_id: (reverse) ? -1 : 1 })
+        .skip(page*limit)
+        .limit(limit)
       return await cursor.toArray()
     } catch (err) {
       return []
@@ -31,14 +35,14 @@ export default class LabReportDAO {
     return await this.labReports.findOne({ _id: ObjectId(id) })
   }
 
-  static async addLabReport({username, name, date, appointmentId}) {
+  static async addLabReport({fromUsername, appointmentId, name, date}) {
     try {
       const response = await this.labReports.insertOne(
         {
-          username: username,
+          fromUsername: fromUsername,
+          appointmentId: ObjectId(appointmentId),
           name: name,
-          date: new Date(date),
-          appointmentId: ObjectId(appointmentId)
+          date: new Date(date)
         },
         {
           writeConcern: { w: "majority" }

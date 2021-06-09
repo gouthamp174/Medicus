@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var LabReportDAO = /*#__PURE__*/function () {
   function LabReportDAO() {
-    (0, _classCallCheck2["default"])(this, LabReportDAO);
+    (0, _classCallCheck2.default)(this, LabReportDAO);
   }
 
-  (0, _createClass2["default"])(LabReportDAO, null, [{
+  (0, _createClass2.default)(LabReportDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -75,17 +75,19 @@ var LabReportDAO = /*#__PURE__*/function () {
   }, {
     key: "getLabReports",
     value: function () {
-      var _getLabReports = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(_ref) {
-        var _ref$filter, filter, _ref$page, page, _ref$limit, limit, cursor;
+      var _getLabReports = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {
+        var _ref$filter, filter, _ref$page, page, _ref$limit, limit, _ref$reverse, reverse, cursor;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _ref$filter = _ref.filter, filter = _ref$filter === void 0 ? {} : _ref$filter, _ref$page = _ref.page, page = _ref$page === void 0 ? 0 : _ref$page, _ref$limit = _ref.limit, limit = _ref$limit === void 0 ? 10 : _ref$limit;
+                _ref$filter = _ref.filter, filter = _ref$filter === void 0 ? {} : _ref$filter, _ref$page = _ref.page, page = _ref$page === void 0 ? 0 : _ref$page, _ref$limit = _ref.limit, limit = _ref$limit === void 0 ? 10 : _ref$limit, _ref$reverse = _ref.reverse, reverse = _ref$reverse === void 0 ? false : _ref$reverse;
                 _context2.prev = 1;
                 _context2.next = 4;
-                return this.labReports.find(filter).skip(page * limit).limit(limit);
+                return this.labReports.find(filter).sort({
+                  _id: reverse ? -1 : 1
+                }).skip(page * limit).limit(limit);
 
               case 4:
                 cursor = _context2.sent;
@@ -117,8 +119,8 @@ var LabReportDAO = /*#__PURE__*/function () {
   }, {
     key: "getLabReport",
     value: function () {
-      var _getLabReport = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(id) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _getLabReport = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -147,20 +149,20 @@ var LabReportDAO = /*#__PURE__*/function () {
   }, {
     key: "addLabReport",
     value: function () {
-      var _addLabReport = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(_ref2) {
-        var username, name, date, appointmentId, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _addLabReport = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref2) {
+        var fromUsername, appointmentId, name, date, response;
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                username = _ref2.username, name = _ref2.name, date = _ref2.date, appointmentId = _ref2.appointmentId;
+                fromUsername = _ref2.fromUsername, appointmentId = _ref2.appointmentId, name = _ref2.name, date = _ref2.date;
                 _context4.prev = 1;
                 _context4.next = 4;
                 return this.labReports.insertOne({
-                  username: username,
+                  fromUsername: fromUsername,
+                  appointmentId: (0, _mongodb.ObjectId)(appointmentId),
                   name: name,
-                  date: new Date(date),
-                  appointmentId: (0, _mongodb.ObjectId)(appointmentId)
+                  date: new Date(date)
                 }, {
                   writeConcern: {
                     w: "majority"
@@ -199,8 +201,8 @@ var LabReportDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteLabReports",
     value: function () {
-      var _deleteLabReports = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(filter) {
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+      var _deleteLabReports = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(filter) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -251,9 +253,9 @@ var LabReportDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteLabReport",
     value: function () {
-      var _deleteLabReport = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(id) {
+      var _deleteLabReport = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(id) {
         var response;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -295,5 +297,5 @@ var LabReportDAO = /*#__PURE__*/function () {
   return LabReportDAO;
 }();
 
-exports["default"] = LabReportDAO;
-(0, _defineProperty2["default"])(LabReportDAO, "labReports", void 0);
+exports.default = LabReportDAO;
+(0, _defineProperty2.default)(LabReportDAO, "labReports", void 0);

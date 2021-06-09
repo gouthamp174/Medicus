@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.ChatApi = void 0;
+exports.default = exports.ChatApi = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -31,21 +31,21 @@ var _models = require("../models");
 // It is done to factor out shared code that can be called by multiple router APIs.
 var ChatApi = /*#__PURE__*/function () {
   function ChatApi() {
-    (0, _classCallCheck2["default"])(this, ChatApi);
+    (0, _classCallCheck2.default)(this, ChatApi);
   }
 
-  (0, _createClass2["default"])(ChatApi, null, [{
+  (0, _createClass2.default)(ChatApi, null, [{
     key: "deleteChat",
     value: function () {
-      var _deleteChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(chatId) {
+      var _deleteChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(chatId) {
         var messageResponse, chatResponse;
-        return _regenerator["default"].wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _messageDAO["default"].deleteMessages({
+                return _messageDAO.default.deleteMessages({
                   chatId: chatId
                 });
 
@@ -61,7 +61,7 @@ var ChatApi = /*#__PURE__*/function () {
 
               case 6:
                 _context.next = 8;
-                return _chatDAO["default"].deleteChat(chatId);
+                return _chatDAO.default.deleteChat(chatId);
 
               case 8:
                 chatResponse = _context.sent;
@@ -105,15 +105,15 @@ exports.ChatApi = ChatApi;
 
 var ChatController = /*#__PURE__*/function () {
   function ChatController() {
-    (0, _classCallCheck2["default"])(this, ChatController);
+    (0, _classCallCheck2.default)(this, ChatController);
   }
 
-  (0, _createClass2["default"])(ChatController, null, [{
+  (0, _createClass2.default)(ChatController, null, [{
     key: "getChats",
     value: function () {
-      var _getChats = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res, next) {
+      var _getChats = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(req, res, next) {
         var view, page, limit, result;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -122,7 +122,7 @@ var ChatController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context2.next = 6;
-                return _chatDAO["default"].getChats({
+                return _chatDAO.default.getChats({
                   filter: {},
                   page: page,
                   limit: limit
@@ -162,16 +162,16 @@ var ChatController = /*#__PURE__*/function () {
   }, {
     key: "getChat",
     value: function () {
-      var _getChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res, next) {
+      var _getChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(req, res, next) {
         var chatId, result;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.prev = 0;
                 chatId = req.params.id;
                 _context3.next = 4;
-                return _chatDAO["default"].getChat(chatId);
+                return _chatDAO.default.getChat(chatId);
 
               case 4:
                 result = _context3.sent;
@@ -209,9 +209,9 @@ var ChatController = /*#__PURE__*/function () {
   }, {
     key: "addChat",
     value: function () {
-      var _addChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res, next) {
+      var _addChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(req, res, next) {
         var chatInfo, hostUsername, user, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -228,7 +228,7 @@ var ChatController = /*#__PURE__*/function () {
               case 4:
                 hostUsername = chatInfo.host;
                 _context4.next = 7;
-                return _userDAO["default"].getUser(hostUsername);
+                return _userDAO.default.getUser(hostUsername);
 
               case 7:
                 user = _context4.sent;
@@ -242,7 +242,7 @@ var ChatController = /*#__PURE__*/function () {
 
               case 10:
                 _context4.next = 12;
-                return _chatDAO["default"].addChat({
+                return _chatDAO.default.addChat({
                   title: chatInfo.title,
                   host: new _models.User(user).toShortJson(),
                   members: chatInfo.members,
@@ -294,16 +294,16 @@ var ChatController = /*#__PURE__*/function () {
   }, {
     key: "deleteChat",
     value: function () {
-      var _deleteChat2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res, next) {
+      var _deleteChat2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(req, res, next) {
         var chatId, chat;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.prev = 0;
                 chatId = req.params.id;
                 _context5.next = 4;
-                return _chatDAO["default"].getChat(chatId);
+                return _chatDAO.default.getChat(chatId);
 
               case 4:
                 chat = _context5.sent;
@@ -351,9 +351,9 @@ var ChatController = /*#__PURE__*/function () {
   }, {
     key: "addActiveMember",
     value: function () {
-      var _addActiveMember = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(req, res, next) {
+      var _addActiveMember = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(req, res, next) {
         var addInfo, chatId, chat, response;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -370,7 +370,7 @@ var ChatController = /*#__PURE__*/function () {
               case 4:
                 chatId = req.params.chatId;
                 _context6.next = 7;
-                return _chatDAO["default"].getChat(chatId);
+                return _chatDAO.default.getChat(chatId);
 
               case 7:
                 chat = _context6.sent;
@@ -392,7 +392,7 @@ var ChatController = /*#__PURE__*/function () {
 
               case 12:
                 _context6.next = 14;
-                return _chatDAO["default"].addActiveMember({
+                return _chatDAO.default.addActiveMember({
                   chatId: chatId,
                   username: addInfo.username
                 });
@@ -439,9 +439,9 @@ var ChatController = /*#__PURE__*/function () {
   }, {
     key: "deleteActiveMember",
     value: function () {
-      var _deleteActiveMember = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(req, res, next) {
+      var _deleteActiveMember = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(req, res, next) {
         var chatId, username, chat, response;
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -449,7 +449,7 @@ var ChatController = /*#__PURE__*/function () {
                 chatId = req.params.chatId;
                 username = req.params.username;
                 _context7.next = 5;
-                return _chatDAO["default"].getChat(chatId);
+                return _chatDAO.default.getChat(chatId);
 
               case 5:
                 chat = _context7.sent;
@@ -471,7 +471,7 @@ var ChatController = /*#__PURE__*/function () {
 
               case 10:
                 _context7.next = 12;
-                return _chatDAO["default"].deleteActiveMember({
+                return _chatDAO.default.deleteActiveMember({
                   chatId: chatId,
                   username: username
                 });
@@ -519,4 +519,4 @@ var ChatController = /*#__PURE__*/function () {
   return ChatController;
 }();
 
-exports["default"] = ChatController;
+exports.default = ChatController;

@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var ChatDAO = /*#__PURE__*/function () {
   function ChatDAO() {
-    (0, _classCallCheck2["default"])(this, ChatDAO);
+    (0, _classCallCheck2.default)(this, ChatDAO);
   }
 
-  (0, _createClass2["default"])(ChatDAO, null, [{
+  (0, _createClass2.default)(ChatDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -84,7 +84,7 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "getChats",
     value: function () {
-      var _getChats = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _getChats = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var _ref,
             _ref$filter,
             filter,
@@ -95,7 +95,7 @@ var ChatDAO = /*#__PURE__*/function () {
             cursor,
             _args2 = arguments;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -133,8 +133,8 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "getChat",
     value: function () {
-      var _getChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(id) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _getChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -170,10 +170,10 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "addChat",
     value: function () {
-      var _addChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(_ref2) {
+      var _addChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref2) {
         var title, host, members, activeMembers, startTime, _ref2$appointmentId, appointmentId, result;
 
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -230,8 +230,8 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteChat",
     value: function () {
-      var _deleteChat = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(id) {
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+      var _deleteChat = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(id) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -271,9 +271,9 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "addActiveMember",
     value: function () {
-      var _addActiveMember = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(_ref3) {
+      var _addActiveMember = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(_ref3) {
         var chatId, username, result;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -319,9 +319,9 @@ var ChatDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteActiveMember",
     value: function () {
-      var _deleteActiveMember = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(_ref4) {
+      var _deleteActiveMember = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(_ref4) {
         var chatId, username, result;
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -368,6 +368,6 @@ var ChatDAO = /*#__PURE__*/function () {
   return ChatDAO;
 }();
 
-exports["default"] = ChatDAO;
-(0, _defineProperty2["default"])(ChatDAO, "chats", void 0);
-(0, _defineProperty2["default"])(ChatDAO, "messages", void 0);
+exports.default = ChatDAO;
+(0, _defineProperty2.default)(ChatDAO, "chats", void 0);
+(0, _defineProperty2.default)(ChatDAO, "messages", void 0);

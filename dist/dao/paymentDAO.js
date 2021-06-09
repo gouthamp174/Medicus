@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var PaymentDAO = /*#__PURE__*/function () {
   function PaymentDAO() {
-    (0, _classCallCheck2["default"])(this, PaymentDAO);
+    (0, _classCallCheck2.default)(this, PaymentDAO);
   }
 
-  (0, _createClass2["default"])(PaymentDAO, null, [{
+  (0, _createClass2.default)(PaymentDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -75,17 +75,19 @@ var PaymentDAO = /*#__PURE__*/function () {
   }, {
     key: "getPayments",
     value: function () {
-      var _getPayments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(_ref) {
-        var _ref$filter, filter, _ref$page, page, _ref$limit, limit, cursor;
+      var _getPayments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {
+        var _ref$filter, filter, _ref$page, page, _ref$limit, limit, _ref$reverse, reverse, cursor;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _ref$filter = _ref.filter, filter = _ref$filter === void 0 ? {} : _ref$filter, _ref$page = _ref.page, page = _ref$page === void 0 ? 0 : _ref$page, _ref$limit = _ref.limit, limit = _ref$limit === void 0 ? 10 : _ref$limit;
+                _ref$filter = _ref.filter, filter = _ref$filter === void 0 ? {} : _ref$filter, _ref$page = _ref.page, page = _ref$page === void 0 ? 0 : _ref$page, _ref$limit = _ref.limit, limit = _ref$limit === void 0 ? 10 : _ref$limit, _ref$reverse = _ref.reverse, reverse = _ref$reverse === void 0 ? false : _ref$reverse;
                 _context2.prev = 1;
                 _context2.next = 4;
-                return this.payments.find(filter).skip(page * limit).limit(limit);
+                return this.payments.find(filter).sort({
+                  _id: reverse ? -1 : 1
+                }).skip(page * limit).limit(limit);
 
               case 4:
                 cursor = _context2.sent;
@@ -117,8 +119,8 @@ var PaymentDAO = /*#__PURE__*/function () {
   }, {
     key: "getPayment",
     value: function () {
-      var _getPayment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(id) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _getPayment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -147,13 +149,13 @@ var PaymentDAO = /*#__PURE__*/function () {
   }, {
     key: "addPayment",
     value: function () {
-      var _addPayment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(_ref2) {
-        var username, amount, date, appointmentId, amountAsNumber, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _addPayment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref2) {
+        var fromUsername, toUsername, appointmentId, amount, date, amountAsNumber, response;
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                username = _ref2.username, amount = _ref2.amount, date = _ref2.date, appointmentId = _ref2.appointmentId;
+                fromUsername = _ref2.fromUsername, toUsername = _ref2.toUsername, appointmentId = _ref2.appointmentId, amount = _ref2.amount, date = _ref2.date;
                 _context4.prev = 1;
                 amountAsNumber = Number(amount);
 
@@ -167,10 +169,11 @@ var PaymentDAO = /*#__PURE__*/function () {
               case 5:
                 _context4.next = 7;
                 return this.payments.insertOne({
-                  username: username,
+                  fromUsername: fromUsername,
+                  toUsername: toUsername,
+                  appointmentId: appointmentId,
                   amount: amountAsNumber,
-                  date: new Date(date),
-                  appointmentId: appointmentId
+                  date: new Date(date)
                 }, {
                   writeConcern: {
                     w: "majority"
@@ -209,8 +212,8 @@ var PaymentDAO = /*#__PURE__*/function () {
   }, {
     key: "deletePayments",
     value: function () {
-      var _deletePayments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(filter) {
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+      var _deletePayments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(filter) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -261,9 +264,9 @@ var PaymentDAO = /*#__PURE__*/function () {
   }, {
     key: "deletePayment",
     value: function () {
-      var _deletePayment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(id) {
+      var _deletePayment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(id) {
         var response;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -305,5 +308,5 @@ var PaymentDAO = /*#__PURE__*/function () {
   return PaymentDAO;
 }();
 
-exports["default"] = PaymentDAO;
-(0, _defineProperty2["default"])(PaymentDAO, "payments", void 0);
+exports.default = PaymentDAO;
+(0, _defineProperty2.default)(PaymentDAO, "payments", void 0);

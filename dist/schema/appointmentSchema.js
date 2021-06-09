@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = createAppointmentSchema;
+exports.default = createAppointmentSchema;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -16,8 +16,8 @@ function createAppointmentSchema(_x) {
 }
 
 function _createAppointmentSchema() {
-  _createAppointmentSchema = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-    return _regenerator["default"].wrap(function _callee$(_context) {
+  _createAppointmentSchema = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -47,7 +47,7 @@ function _createAppointmentSchema() {
                       description: "Username of physician."
                     },
                     status: {
-                      "enum": ["Pending", "Accepted", "Rejected", "Completed"],
+                      enum: ["Pending", "Accepted", "Rejected", "Completed"],
                       description: "Status of appointment."
                     },
                     startTime: {

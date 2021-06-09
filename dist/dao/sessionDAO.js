@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var SessionDAO = /*#__PURE__*/function () {
   function SessionDAO() {
-    (0, _classCallCheck2["default"])(this, SessionDAO);
+    (0, _classCallCheck2.default)(this, SessionDAO);
   }
 
-  (0, _createClass2["default"])(SessionDAO, null, [{
+  (0, _createClass2.default)(SessionDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -75,8 +75,8 @@ var SessionDAO = /*#__PURE__*/function () {
   }, {
     key: "getSession",
     value: function () {
-      var _getSession = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(id) {
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+      var _getSession = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -112,9 +112,9 @@ var SessionDAO = /*#__PURE__*/function () {
   }, {
     key: "addSession",
     value: function () {
-      var _addSession = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(username, startTime) {
+      var _addSession = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(username, startTime) {
         var response;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -161,8 +161,8 @@ var SessionDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteSession",
     value: function () {
-      var _deleteSession = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(id) {
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _deleteSession = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(id) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -203,5 +203,5 @@ var SessionDAO = /*#__PURE__*/function () {
   return SessionDAO;
 }();
 
-exports["default"] = SessionDAO;
-(0, _defineProperty2["default"])(SessionDAO, "sessions", void 0);
+exports.default = SessionDAO;
+(0, _defineProperty2.default)(SessionDAO, "sessions", void 0);

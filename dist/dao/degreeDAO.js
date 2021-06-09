@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var DegreeDAO = /*#__PURE__*/function () {
   function DegreeDAO() {
-    (0, _classCallCheck2["default"])(this, DegreeDAO);
+    (0, _classCallCheck2.default)(this, DegreeDAO);
   }
 
-  (0, _createClass2["default"])(DegreeDAO, null, [{
+  (0, _createClass2.default)(DegreeDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -75,10 +75,10 @@ var DegreeDAO = /*#__PURE__*/function () {
   }, {
     key: "getDegrees",
     value: function () {
-      var _getDegrees = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(_ref) {
+      var _getDegrees = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {
         var _ref$filter, filter, _ref$page, page, _ref$limit, limit, cursor;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -117,8 +117,8 @@ var DegreeDAO = /*#__PURE__*/function () {
   }, {
     key: "getDegree",
     value: function () {
-      var _getDegree = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(id) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _getDegree = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -147,9 +147,9 @@ var DegreeDAO = /*#__PURE__*/function () {
   }, {
     key: "addDegree",
     value: function () {
-      var _addDegree = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(_ref2) {
+      var _addDegree = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref2) {
         var username, degree, fromDate, toDate, university, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -200,8 +200,8 @@ var DegreeDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteDegrees",
     value: function () {
-      var _deleteDegrees = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(filter) {
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+      var _deleteDegrees = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(filter) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -252,9 +252,9 @@ var DegreeDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteDegree",
     value: function () {
-      var _deleteDegree = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(id) {
+      var _deleteDegree = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(id) {
         var response;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -296,5 +296,5 @@ var DegreeDAO = /*#__PURE__*/function () {
   return DegreeDAO;
 }();
 
-exports["default"] = DegreeDAO;
-(0, _defineProperty2["default"])(DegreeDAO, "degrees", void 0);
+exports.default = DegreeDAO;
+(0, _defineProperty2.default)(DegreeDAO, "degrees", void 0);

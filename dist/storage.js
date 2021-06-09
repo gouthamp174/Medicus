@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
@@ -15,7 +15,7 @@ var multer = require("multer");
 
 var GridFsStorage = require("multer-gridfs-storage");
 
-_dotenv["default"].config();
+_dotenv.default.config();
 
 var storage = new GridFsStorage({
   url: process.env.DB_URI,
@@ -45,4 +45,4 @@ var FileUploader = multer({
   }
 });
 var _default = FileUploader;
-exports["default"] = _default;
+exports.default = _default;

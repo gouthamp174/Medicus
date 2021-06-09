@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.AppointmentApi = void 0;
+exports.default = exports.AppointmentApi = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -41,7 +41,7 @@ var _labReportDAO = _interopRequireDefault(require("../../dao/labReportDAO"));
 
 var _chatController = require("../chatApp/chatController");
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -51,22 +51,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 // It is done to factor out shared code that can be called by multiple router APIs.
 var AppointmentApi = /*#__PURE__*/function () {
   function AppointmentApi() {
-    (0, _classCallCheck2["default"])(this, AppointmentApi);
+    (0, _classCallCheck2.default)(this, AppointmentApi);
   }
 
-  (0, _createClass2["default"])(AppointmentApi, null, [{
+  (0, _createClass2.default)(AppointmentApi, null, [{
     key: "deleteAppointments",
     value: function () {
-      var _deleteAppointments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(filter) {
+      var _deleteAppointments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(filter) {
         var appointments, _iterator, _step, appointment;
 
-        return _regenerator["default"].wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _appointmentDAO["default"].getAppointments({
+                return _appointmentDAO.default.getAppointments({
                   filter: filter,
                   page: 0,
                   limit: 0
@@ -136,9 +136,9 @@ var AppointmentApi = /*#__PURE__*/function () {
   }, {
     key: "deleteAppointment",
     value: function () {
-      var _deleteAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(appointmentId, chatId) {
+      var _deleteAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(appointmentId, chatId) {
         var chatResponse, noteResponse, medicationResponse, labReportResponse, appointmentResponse;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -149,7 +149,7 @@ var AppointmentApi = /*#__PURE__*/function () {
               case 3:
                 chatResponse = _context2.sent;
                 _context2.next = 6;
-                return _noteDAO["default"].deleteNotes({
+                return _noteDAO.default.deleteNotes({
                   appointmentId: (0, _mongodb.ObjectId)(appointmentId)
                 });
 
@@ -165,7 +165,7 @@ var AppointmentApi = /*#__PURE__*/function () {
 
               case 9:
                 _context2.next = 11;
-                return _medicationDAO["default"].deleteMedications({
+                return _medicationDAO.default.deleteMedications({
                   appointmentId: (0, _mongodb.ObjectId)(appointmentId)
                 });
 
@@ -181,7 +181,7 @@ var AppointmentApi = /*#__PURE__*/function () {
 
               case 14:
                 _context2.next = 16;
-                return _labReportDAO["default"].deleteLabReports({
+                return _labReportDAO.default.deleteLabReports({
                   appointmentId: (0, _mongodb.ObjectId)(appointmentId)
                 });
 
@@ -197,7 +197,7 @@ var AppointmentApi = /*#__PURE__*/function () {
 
               case 19:
                 _context2.next = 21;
-                return _appointmentDAO["default"].deleteAppointment(appointmentId);
+                return _appointmentDAO.default.deleteAppointment(appointmentId);
 
               case 21:
                 appointmentResponse = _context2.sent;
@@ -241,15 +241,15 @@ exports.AppointmentApi = AppointmentApi;
 
 var AppointmentController = /*#__PURE__*/function () {
   function AppointmentController() {
-    (0, _classCallCheck2["default"])(this, AppointmentController);
+    (0, _classCallCheck2.default)(this, AppointmentController);
   }
 
-  (0, _createClass2["default"])(AppointmentController, null, [{
+  (0, _createClass2.default)(AppointmentController, null, [{
     key: "getAppointments",
     value: function () {
-      var _getAppointments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res, next) {
+      var _getAppointments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(req, res, next) {
         var session, search, view, page, limit, filter, currentTime, result, queryRegex, searchQuery;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -279,7 +279,7 @@ var AppointmentController = /*#__PURE__*/function () {
                       }
                     }, {
                       status: {
-                        $ne: "Completed"
+                        $ne: "Done"
                       }
                     }]
                   };
@@ -292,7 +292,7 @@ var AppointmentController = /*#__PURE__*/function () {
                         "physician.username": session.username
                       }]
                     }, {
-                      status: "Completed"
+                      status: "Done"
                     }]
                   };
                 } else {
@@ -324,7 +324,7 @@ var AppointmentController = /*#__PURE__*/function () {
                   }]
                 };
                 _context3.next = 12;
-                return _appointmentDAO["default"].searchAppointments({
+                return _appointmentDAO.default.searchAppointments({
                   filter: filter,
                   searchQuery: searchQuery,
                   page: page,
@@ -338,7 +338,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 15:
                 _context3.next = 17;
-                return _appointmentDAO["default"].getAppointments({
+                return _appointmentDAO.default.getAppointments({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -380,9 +380,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "getAppointment",
     value: function () {
-      var _getAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res, next) {
+      var _getAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(req, res, next) {
         var session, appointmentId, result;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -390,7 +390,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 session = req.session;
                 appointmentId = req.params.id;
                 _context4.next = 5;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 5:
                 result = _context4.sent;
@@ -432,9 +432,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "addAppointment",
     value: function () {
-      var _addAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res, next) {
+      var _addAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(req, res, next) {
         var appointmentInfo, patientUser, physicianUser, service, appointmentResponse, chatResponse;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -450,7 +450,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 4:
                 _context5.next = 6;
-                return _userDAO["default"].getUser(appointmentInfo.patient);
+                return _userDAO.default.getUser(appointmentInfo.patient);
 
               case 6:
                 patientUser = _context5.sent;
@@ -464,7 +464,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 9:
                 _context5.next = 11;
-                return _userDAO["default"].getUser(appointmentInfo.physician);
+                return _userDAO.default.getUser(appointmentInfo.physician);
 
               case 11:
                 physicianUser = _context5.sent;
@@ -478,7 +478,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 14:
                 _context5.next = 16;
-                return _serviceDAO["default"].getService(appointmentInfo.serviceId);
+                return _serviceDAO.default.getService(appointmentInfo.serviceId);
 
               case 16:
                 service = _context5.sent;
@@ -493,7 +493,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 19:
                 _context5.prev = 19;
                 _context5.next = 22;
-                return _appointmentDAO["default"].addAppointment({
+                return _appointmentDAO.default.addAppointment({
                   title: appointmentInfo.title,
                   patient: new _models.User(patientUser).toShortJson(),
                   physician: new _models.User(physicianUser).toShortJson(),
@@ -518,7 +518,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 25:
                 _context5.next = 27;
-                return _chatDAO["default"].addChat({
+                return _chatDAO.default.addChat({
                   title: appointmentInfo.title,
                   host: new _models.User(patientUser).toShortJson(),
                   members: [appointmentInfo.physician],
@@ -539,7 +539,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 30:
                 _context5.next = 32;
-                return _appointmentDAO["default"].updateAppointment(appointmentResponse.id, {
+                return _appointmentDAO.default.updateAppointment(appointmentResponse.id, {
                   chatId: (0, _mongodb.ObjectId)(chatResponse.id)
                 });
 
@@ -561,7 +561,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 }
 
                 _context5.next = 40;
-                return _appointmentDAO["default"].deleteAppointment(appointmentResponse.id);
+                return _appointmentDAO.default.deleteAppointment(appointmentResponse.id);
 
               case 40:
                 if (!(chatResponse && chatResponse.success)) {
@@ -570,7 +570,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 }
 
                 _context5.next = 43;
-                return _chatDAO["default"].deleteChat(chatResponse.id);
+                return _chatDAO.default.deleteChat(chatResponse.id);
 
               case 43:
                 throw new _errors.HttpInternalServerError(_context5.t0);
@@ -604,16 +604,16 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "deleteAppointment",
     value: function () {
-      var _deleteAppointment2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(req, res, next) {
+      var _deleteAppointment2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(req, res, next) {
         var appointmentId, appointment;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.prev = 0;
                 appointmentId = req.params.id;
                 _context6.next = 4;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 4:
                 appointment = _context6.sent;
@@ -661,10 +661,10 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "updateAppointment",
     value: function () {
-      var _updateAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(req, res, next) {
+      var _updateAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(req, res, next) {
         var appointmentId, updateInfo, notUpdatableFields, _i, _notUpdatableFields, field, result;
 
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -672,7 +672,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 appointmentId = req.params.id;
                 updateInfo = req.body;
 
-                if (!(!updateInfo || updateInfo && !Object.keys(updateInfo).length || (0, _typeof2["default"])(updateInfo) !== "object")) {
+                if (!(!updateInfo || updateInfo && !Object.keys(updateInfo).length || (0, _typeof2.default)(updateInfo) !== "object")) {
                   _context7.next = 5;
                   break;
                 }
@@ -705,7 +705,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 14:
                 _context7.next = 16;
-                return _appointmentDAO["default"].updateAppointment(appointmentId, updateInfo);
+                return _appointmentDAO.default.updateAppointment(appointmentId, updateInfo);
 
               case 16:
                 result = _context7.sent;
@@ -749,9 +749,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "getNotes",
     value: function () {
-      var _getNotes = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8(req, res, next) {
+      var _getNotes = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee8(req, res, next) {
         var appointmentId, page, limit, appointment, filter, notes;
-        return _regenerator["default"].wrap(function _callee8$(_context8) {
+        return _regenerator.default.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -760,7 +760,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context8.next = 6;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 6:
                 appointment = _context8.sent;
@@ -777,10 +777,11 @@ var AppointmentController = /*#__PURE__*/function () {
                   appointmentId: (0, _mongodb.ObjectId)(appointment._id)
                 };
                 _context8.next = 12;
-                return _noteDAO["default"].getNotes({
+                return _noteDAO.default.getNotes({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -817,9 +818,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "addNote",
     value: function () {
-      var _addNote = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9(req, res, next) {
+      var _addNote = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee9(req, res, next) {
         var noteInfo, appointmentId, appointment, response;
-        return _regenerator["default"].wrap(function _callee9$(_context9) {
+        return _regenerator.default.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -827,7 +828,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 noteInfo = req.body;
                 appointmentId = req.params.appointmentId;
                 _context9.next = 5;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 5:
                 appointment = _context9.sent;
@@ -841,7 +842,8 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 8:
                 _context9.next = 10;
-                return _noteDAO["default"].addNote({
+                return _noteDAO.default.addNote({
+                  fromUsername: noteInfo.fromUsername,
                   appointmentId: (0, _mongodb.ObjectId)(appointment._id),
                   title: noteInfo.title,
                   content: noteInfo.content,
@@ -891,16 +893,16 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "deleteNote",
     value: function () {
-      var _deleteNote = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee10(req, res, next) {
+      var _deleteNote = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee10(req, res, next) {
         var appointmentId, appointment, noteId, note, response;
-        return _regenerator["default"].wrap(function _callee10$(_context10) {
+        return _regenerator.default.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
                 _context10.prev = 0;
                 appointmentId = req.params.appointmentId;
                 _context10.next = 4;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 4:
                 appointment = _context10.sent;
@@ -915,7 +917,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 7:
                 noteId = req.params.id;
                 _context10.next = 10;
-                return _noteDAO["default"].getNote(noteId);
+                return _noteDAO.default.getNote(noteId);
 
               case 10:
                 note = _context10.sent;
@@ -929,7 +931,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 13:
                 _context10.next = 15;
-                return _noteDAO["default"].deleteNote(noteId);
+                return _noteDAO.default.deleteNote(noteId);
 
               case 15:
                 response = _context10.sent;
@@ -973,9 +975,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "getPayments",
     value: function () {
-      var _getPayments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee11(req, res, next) {
+      var _getPayments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee11(req, res, next) {
         var appointmentId, page, limit, appointment, filter, payments;
-        return _regenerator["default"].wrap(function _callee11$(_context11) {
+        return _regenerator.default.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
@@ -984,7 +986,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context11.next = 6;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 6:
                 appointment = _context11.sent;
@@ -1001,10 +1003,11 @@ var AppointmentController = /*#__PURE__*/function () {
                   appointmentId: (0, _mongodb.ObjectId)(appointment._id)
                 };
                 _context11.next = 12;
-                return _paymentDAO["default"].getPayments({
+                return _paymentDAO.default.getPayments({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1041,9 +1044,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "addPayment",
     value: function () {
-      var _addPayment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee12(req, res, next) {
+      var _addPayment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee12(req, res, next) {
         var paymentInfo, appointmentId, appointment, amountAsNumber, addResponse, updateResponse;
-        return _regenerator["default"].wrap(function _callee12$(_context12) {
+        return _regenerator.default.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
@@ -1060,7 +1063,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 4:
                 appointmentId = req.params.appointmentId;
                 _context12.next = 7;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 7:
                 appointment = _context12.sent;
@@ -1092,11 +1095,12 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 15:
                 _context12.next = 17;
-                return _paymentDAO["default"].addPayment({
-                  username: paymentInfo.username,
+                return _paymentDAO.default.addPayment({
+                  fromUsername: paymentInfo.fromUsername,
+                  toUsername: paymentInfo.toUsername,
+                  appointmentId: (0, _mongodb.ObjectId)(appointment._id),
                   amount: amountAsNumber,
-                  date: new Date(paymentInfo.date),
-                  appointmentId: (0, _mongodb.ObjectId)(appointment._id)
+                  date: new Date(paymentInfo.date)
                 });
 
               case 17:
@@ -1111,7 +1115,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 20:
                 _context12.next = 22;
-                return _appointmentDAO["default"].updateAppointment(appointmentId, {
+                return _appointmentDAO.default.updateAppointment(appointmentId, {
                   paymentBalance: appointment.paymentBalance - amountAsNumber
                 });
 
@@ -1158,16 +1162,16 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "deletePayment",
     value: function () {
-      var _deletePayment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee13(req, res, next) {
+      var _deletePayment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee13(req, res, next) {
         var appointmentId, appointment, paymentId, payment, deleteResponse, updateResponse;
-        return _regenerator["default"].wrap(function _callee13$(_context13) {
+        return _regenerator.default.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
                 _context13.prev = 0;
                 appointmentId = req.params.appointmentId;
                 _context13.next = 4;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 4:
                 appointment = _context13.sent;
@@ -1182,7 +1186,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 7:
                 paymentId = req.params.id;
                 _context13.next = 10;
-                return _paymentDAO["default"].getPayment(paymentId);
+                return _paymentDAO.default.getPayment(paymentId);
 
               case 10:
                 payment = _context13.sent;
@@ -1196,7 +1200,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 13:
                 _context13.next = 15;
-                return _paymentDAO["default"].deletePayment(paymentId);
+                return _paymentDAO.default.deletePayment(paymentId);
 
               case 15:
                 deleteResponse = _context13.sent;
@@ -1215,7 +1219,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 }
 
                 _context13.next = 21;
-                return _appointmentDAO["default"].updateAppointment(appointmentId, {
+                return _appointmentDAO.default.updateAppointment(appointmentId, {
                   paymentBalance: appointment.paymentBalance + payment.amount
                 });
 
@@ -1261,9 +1265,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "getMedications",
     value: function () {
-      var _getMedications = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee14(req, res, next) {
+      var _getMedications = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee14(req, res, next) {
         var appointmentId, page, limit, appointment, filter, medications;
-        return _regenerator["default"].wrap(function _callee14$(_context14) {
+        return _regenerator.default.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
@@ -1272,7 +1276,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context14.next = 6;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 6:
                 appointment = _context14.sent;
@@ -1289,10 +1293,11 @@ var AppointmentController = /*#__PURE__*/function () {
                   appointmentId: (0, _mongodb.ObjectId)(appointment._id)
                 };
                 _context14.next = 12;
-                return _medicationDAO["default"].getMedications({
+                return _medicationDAO.default.getMedications({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1329,9 +1334,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "addMedication",
     value: function () {
-      var _addMedication = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee15(req, res, next) {
+      var _addMedication = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee15(req, res, next) {
         var medicationInfo, appointmentId, appointment, response;
-        return _regenerator["default"].wrap(function _callee15$(_context15) {
+        return _regenerator.default.wrap(function _callee15$(_context15) {
           while (1) {
             switch (_context15.prev = _context15.next) {
               case 0:
@@ -1348,7 +1353,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 4:
                 appointmentId = req.params.appointmentId;
                 _context15.next = 7;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 7:
                 appointment = _context15.sent;
@@ -1362,11 +1367,12 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 10:
                 _context15.next = 12;
-                return _medicationDAO["default"].addMedication({
-                  username: medicationInfo.username,
+                return _medicationDAO.default.addMedication({
+                  fromUsername: medicationInfo.fromUsername,
+                  toUsername: medicationInfo.toUsername,
+                  appointmentId: (0, _mongodb.ObjectId)(appointment._id),
                   name: medicationInfo.name,
-                  dosage: medicationInfo.dosage,
-                  appointmentId: (0, _mongodb.ObjectId)(appointment._id)
+                  dosage: medicationInfo.dosage
                 });
 
               case 12:
@@ -1412,16 +1418,16 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "deleteMedication",
     value: function () {
-      var _deleteMedication = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee16(req, res, next) {
+      var _deleteMedication = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee16(req, res, next) {
         var appointmentId, appointment, medicationId, medication, response;
-        return _regenerator["default"].wrap(function _callee16$(_context16) {
+        return _regenerator.default.wrap(function _callee16$(_context16) {
           while (1) {
             switch (_context16.prev = _context16.next) {
               case 0:
                 _context16.prev = 0;
                 appointmentId = req.params.appointmentId;
                 _context16.next = 4;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 4:
                 appointment = _context16.sent;
@@ -1436,7 +1442,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 7:
                 medicationId = req.params.id;
                 _context16.next = 10;
-                return _medicationDAO["default"].getMedication(medicationId);
+                return _medicationDAO.default.getMedication(medicationId);
 
               case 10:
                 medication = _context16.sent;
@@ -1450,7 +1456,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 13:
                 _context16.next = 15;
-                return _medicationDAO["default"].deleteMedication(medicationId);
+                return _medicationDAO.default.deleteMedication(medicationId);
 
               case 15:
                 response = _context16.sent;
@@ -1494,9 +1500,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "getReports",
     value: function () {
-      var _getReports = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee17(req, res, next) {
+      var _getReports = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee17(req, res, next) {
         var appointmentId, page, limit, appointment, filter, labReports;
-        return _regenerator["default"].wrap(function _callee17$(_context17) {
+        return _regenerator.default.wrap(function _callee17$(_context17) {
           while (1) {
             switch (_context17.prev = _context17.next) {
               case 0:
@@ -1505,7 +1511,7 @@ var AppointmentController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context17.next = 6;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 6:
                 appointment = _context17.sent;
@@ -1522,10 +1528,11 @@ var AppointmentController = /*#__PURE__*/function () {
                   appointmentId: (0, _mongodb.ObjectId)(appointment._id)
                 };
                 _context17.next = 12;
-                return _labReportDAO["default"].getLabReports({
+                return _labReportDAO.default.getLabReports({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1562,9 +1569,9 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "addReport",
     value: function () {
-      var _addReport = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee18(req, res, next) {
+      var _addReport = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee18(req, res, next) {
         var labReportInfo, appointmentId, appointment, response;
-        return _regenerator["default"].wrap(function _callee18$(_context18) {
+        return _regenerator.default.wrap(function _callee18$(_context18) {
           while (1) {
             switch (_context18.prev = _context18.next) {
               case 0:
@@ -1581,7 +1588,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 4:
                 appointmentId = req.params.appointmentId;
                 _context18.next = 7;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 7:
                 appointment = _context18.sent;
@@ -1595,11 +1602,11 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 10:
                 _context18.next = 12;
-                return _labReportDAO["default"].addLabReport({
-                  username: labReportInfo.username,
+                return _labReportDAO.default.addLabReport({
+                  fromUsername: labReportInfo.fromUsername,
+                  appointmentId: (0, _mongodb.ObjectId)(appointment._id),
                   name: labReportInfo.name,
-                  date: labReportInfo.date,
-                  appointmentId: (0, _mongodb.ObjectId)(appointment._id)
+                  date: labReportInfo.date
                 });
 
               case 12:
@@ -1645,16 +1652,16 @@ var AppointmentController = /*#__PURE__*/function () {
   }, {
     key: "deleteReport",
     value: function () {
-      var _deleteReport = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee19(req, res, next) {
+      var _deleteReport = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee19(req, res, next) {
         var appointmentId, appointment, labReportId, labReport, response;
-        return _regenerator["default"].wrap(function _callee19$(_context19) {
+        return _regenerator.default.wrap(function _callee19$(_context19) {
           while (1) {
             switch (_context19.prev = _context19.next) {
               case 0:
                 _context19.prev = 0;
                 appointmentId = req.params.appointmentId;
                 _context19.next = 4;
-                return _appointmentDAO["default"].getAppointment(appointmentId);
+                return _appointmentDAO.default.getAppointment(appointmentId);
 
               case 4:
                 appointment = _context19.sent;
@@ -1669,7 +1676,7 @@ var AppointmentController = /*#__PURE__*/function () {
               case 7:
                 labReportId = req.params.id;
                 _context19.next = 10;
-                return _labReportDAO["default"].getLabReport(labReportId);
+                return _labReportDAO.default.getLabReport(labReportId);
 
               case 10:
                 labReport = _context19.sent;
@@ -1683,7 +1690,7 @@ var AppointmentController = /*#__PURE__*/function () {
 
               case 13:
                 _context19.next = 15;
-                return _labReportDAO["default"].deleteLabReport(labReportId);
+                return _labReportDAO.default.deleteLabReport(labReportId);
 
               case 15:
                 response = _context19.sent;
@@ -1728,4 +1735,4 @@ var AppointmentController = /*#__PURE__*/function () {
   return AppointmentController;
 }();
 
-exports["default"] = AppointmentController;
+exports.default = AppointmentController;

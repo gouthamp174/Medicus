@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.UserApi = void 0;
+exports.default = exports.UserApi = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -45,15 +45,15 @@ var _controller = require("../appointmentApp/controller");
 // It is done to factor out shared code that can be called by multiple router APIs.
 var UserApi = /*#__PURE__*/function () {
   function UserApi() {
-    (0, _classCallCheck2["default"])(this, UserApi);
+    (0, _classCallCheck2.default)(this, UserApi);
   }
 
-  (0, _createClass2["default"])(UserApi, null, [{
+  (0, _createClass2.default)(UserApi, null, [{
     key: "deleteUser",
     value: function () {
-      var _deleteUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(username, profilePhotoId) {
+      var _deleteUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(username, profilePhotoId) {
         var appointmentResponse, insuranceResponse, serviceResponse, paymentResponse, jobResponse, degreeResponse, photoResponse, userResponse;
-        return _regenerator["default"].wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -66,7 +66,7 @@ var UserApi = /*#__PURE__*/function () {
               case 3:
                 appointmentResponse = _context.sent;
                 _context.next = 6;
-                return _insuranceDAO["default"].deleteInsurances({
+                return _insuranceDAO.default.deleteInsurances({
                   username: username
                 });
 
@@ -82,7 +82,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 9:
                 _context.next = 11;
-                return _serviceDAO["default"].deleteServices({
+                return _serviceDAO.default.deleteServices({
                   username: username
                 });
 
@@ -98,7 +98,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 14:
                 _context.next = 16;
-                return _paymentDAO["default"].deletePayments({
+                return _paymentDAO.default.deletePayments({
                   username: username
                 });
 
@@ -114,7 +114,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 19:
                 _context.next = 21;
-                return _jobDAO["default"].deleteJobs({
+                return _jobDAO.default.deleteJobs({
                   username: username
                 });
 
@@ -130,7 +130,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 24:
                 _context.next = 26;
-                return _degreeDAO["default"].deleteDegrees({
+                return _degreeDAO.default.deleteDegrees({
                   username: username
                 });
 
@@ -146,7 +146,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 29:
                 _context.next = 31;
-                return _userDAO["default"].deletePhoto(profilePhotoId);
+                return _userDAO.default.deletePhoto(profilePhotoId);
 
               case 31:
                 photoResponse = _context.sent;
@@ -160,7 +160,7 @@ var UserApi = /*#__PURE__*/function () {
 
               case 34:
                 _context.next = 36;
-                return _userDAO["default"].deleteUser(username);
+                return _userDAO.default.deleteUser(username);
 
               case 36:
                 userResponse = _context.sent;
@@ -204,15 +204,15 @@ exports.UserApi = UserApi;
 
 var UserController = /*#__PURE__*/function () {
   function UserController() {
-    (0, _classCallCheck2["default"])(this, UserController);
+    (0, _classCallCheck2.default)(this, UserController);
   }
 
-  (0, _createClass2["default"])(UserController, null, [{
+  (0, _createClass2.default)(UserController, null, [{
     key: "getUsers",
     value: function () {
-      var _getUsers = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res, next) {
+      var _getUsers = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(req, res, next) {
         var view, search, page, limit, filter, result, queryRegex, searchQuery;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -258,7 +258,7 @@ var UserController = /*#__PURE__*/function () {
                   }]
                 };
                 _context2.next = 15;
-                return _userDAO["default"].searchUsers({
+                return _userDAO.default.searchUsers({
                   filter: filter,
                   searchQuery: searchQuery,
                   page: page,
@@ -274,7 +274,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 18:
                 _context2.next = 20;
-                return _userDAO["default"].getUsers({
+                return _userDAO.default.getUsers({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -316,16 +316,16 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getUser",
     value: function () {
-      var _getUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res, next) {
+      var _getUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(req, res, next) {
         var username, result;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.prev = 0;
                 username = req.params.username;
                 _context3.next = 4;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 4:
                 result = _context3.sent;
@@ -358,10 +358,10 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "updateUser",
     value: function () {
-      var _updateUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res, next) {
+      var _updateUser = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(req, res, next) {
         var username, updateInfo, notUpdatableFields, _i, _notUpdatableFields, field, updateResponse;
 
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -406,7 +406,7 @@ var UserController = /*#__PURE__*/function () {
                 }
 
                 _context4.next = 17;
-                return _userDAO["default"].updateUser(username, updateInfo);
+                return _userDAO.default.updateUser(username, updateInfo);
 
               case 17:
                 updateResponse = _context4.sent;
@@ -450,9 +450,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deleteUser",
     value: function () {
-      var _deleteUser2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res, next) {
+      var _deleteUser2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(req, res, next) {
         var username, session, user;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -469,7 +469,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 5:
                 _context5.next = 7;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 7:
                 user = _context5.sent;
@@ -517,16 +517,16 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getPhoto",
     value: function () {
-      var _getPhoto = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(req, res, next) {
+      var _getPhoto = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(req, res, next) {
         var username, user, photoId, photoStream;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.prev = 0;
                 username = req.params.username;
                 _context6.next = 4;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 4:
                 user = _context6.sent;
@@ -541,7 +541,7 @@ var UserController = /*#__PURE__*/function () {
               case 7:
                 photoId = req.params.id;
                 _context6.next = 10;
-                return _userDAO["default"].getPhoto(photoId);
+                return _userDAO.default.getPhoto(photoId);
 
               case 10:
                 photoStream = _context6.sent;
@@ -580,10 +580,10 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addPhoto",
     value: function () {
-      var _addPhoto = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(req, res, next) {
+      var _addPhoto = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(req, res, next) {
         var username, addInfo, user, isProfilePhoto, deleteResponse, response, _deleteResponse;
 
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -592,7 +592,7 @@ var UserController = /*#__PURE__*/function () {
                 addInfo = req.body;
                 _context7.prev = 3;
                 _context7.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context7.sent;
@@ -618,14 +618,14 @@ var UserController = /*#__PURE__*/function () {
                 }
 
                 _context7.next = 14;
-                return _userDAO["default"].deletePhoto(user.profilePhotoId);
+                return _userDAO.default.deletePhoto(user.profilePhotoId);
 
               case 14:
                 deleteResponse = _context7.sent;
 
               case 15:
                 _context7.next = 17;
-                return _userDAO["default"].updateUser(username, {
+                return _userDAO.default.updateUser(username, {
                   profilePhotoId: (0, _mongodb.ObjectId)(req.file.id)
                 });
 
@@ -651,7 +651,7 @@ var UserController = /*#__PURE__*/function () {
                 _context7.prev = 23;
                 _context7.t0 = _context7["catch"](3);
                 _context7.next = 27;
-                return _userDAO["default"].deletePhoto(req.file.id);
+                return _userDAO.default.deletePhoto(req.file.id);
 
               case 27:
                 _deleteResponse = _context7.sent;
@@ -695,9 +695,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deletePhoto",
     value: function () {
-      var _deletePhoto = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8(req, res, next) {
+      var _deletePhoto = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee8(req, res, next) {
         var username, photoId, user, response;
-        return _regenerator["default"].wrap(function _callee8$(_context8) {
+        return _regenerator.default.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -705,7 +705,7 @@ var UserController = /*#__PURE__*/function () {
                 username = req.params.username;
                 photoId = req.params.id;
                 _context8.next = 5;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 5:
                 user = _context8.sent;
@@ -719,7 +719,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 8:
                 _context8.next = 10;
-                return _userDAO["default"].deletePhoto(photoId);
+                return _userDAO.default.deletePhoto(photoId);
 
               case 10:
                 response = _context8.sent;
@@ -763,9 +763,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getDegrees",
     value: function () {
-      var _getDegrees = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9(req, res, next) {
+      var _getDegrees = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee9(req, res, next) {
         var username, page, limit, user, filter, degrees;
-        return _regenerator["default"].wrap(function _callee9$(_context9) {
+        return _regenerator.default.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -774,7 +774,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context9.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context9.sent;
@@ -791,7 +791,7 @@ var UserController = /*#__PURE__*/function () {
                   username: username
                 };
                 _context9.next = 12;
-                return _degreeDAO["default"].getDegrees({
+                return _degreeDAO.default.getDegrees({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -831,9 +831,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addDegree",
     value: function () {
-      var _addDegree = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee10(req, res, next) {
+      var _addDegree = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee10(req, res, next) {
         var degreeInfo, username, user, response;
-        return _regenerator["default"].wrap(function _callee10$(_context10) {
+        return _regenerator.default.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
@@ -850,7 +850,7 @@ var UserController = /*#__PURE__*/function () {
               case 4:
                 username = req.params.username;
                 _context10.next = 7;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 7:
                 user = _context10.sent;
@@ -864,7 +864,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 10:
                 _context10.next = 12;
-                return _degreeDAO["default"].addDegree({
+                return _degreeDAO.default.addDegree({
                   username: username,
                   degree: degreeInfo.degree,
                   fromDate: new Date(degreeInfo.fromDate),
@@ -915,9 +915,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deleteDegree",
     value: function () {
-      var _deleteDegree = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee11(req, res, next) {
+      var _deleteDegree = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee11(req, res, next) {
         var username, degreeId, response;
-        return _regenerator["default"].wrap(function _callee11$(_context11) {
+        return _regenerator.default.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
@@ -925,7 +925,7 @@ var UserController = /*#__PURE__*/function () {
                 username = req.params.username;
                 degreeId = req.params.id;
                 _context11.next = 5;
-                return _degreeDAO["default"].deleteDegree(degreeId);
+                return _degreeDAO.default.deleteDegree(degreeId);
 
               case 5:
                 response = _context11.sent;
@@ -969,9 +969,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getJobs",
     value: function () {
-      var _getJobs = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee12(req, res, next) {
+      var _getJobs = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee12(req, res, next) {
         var username, page, limit, user, filter, jobs;
-        return _regenerator["default"].wrap(function _callee12$(_context12) {
+        return _regenerator.default.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
@@ -980,7 +980,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context12.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context12.sent;
@@ -997,7 +997,7 @@ var UserController = /*#__PURE__*/function () {
                   username: username
                 };
                 _context12.next = 12;
-                return _jobDAO["default"].getJobs({
+                return _jobDAO.default.getJobs({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -1037,9 +1037,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addJob",
     value: function () {
-      var _addJob = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee13(req, res, next) {
+      var _addJob = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee13(req, res, next) {
         var jobInfo, username, user, response;
-        return _regenerator["default"].wrap(function _callee13$(_context13) {
+        return _regenerator.default.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
@@ -1056,7 +1056,7 @@ var UserController = /*#__PURE__*/function () {
               case 4:
                 username = req.params.username;
                 _context13.next = 7;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 7:
                 user = _context13.sent;
@@ -1070,7 +1070,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 10:
                 _context13.next = 12;
-                return _jobDAO["default"].addJob({
+                return _jobDAO.default.addJob({
                   username: username,
                   title: jobInfo.title,
                   fromDate: new Date(jobInfo.fromDate),
@@ -1121,9 +1121,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deleteJob",
     value: function () {
-      var _deleteJob = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee14(req, res, next) {
+      var _deleteJob = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee14(req, res, next) {
         var username, jobId, response;
-        return _regenerator["default"].wrap(function _callee14$(_context14) {
+        return _regenerator.default.wrap(function _callee14$(_context14) {
           while (1) {
             switch (_context14.prev = _context14.next) {
               case 0:
@@ -1131,7 +1131,7 @@ var UserController = /*#__PURE__*/function () {
                 username = req.params.username;
                 jobId = req.params.id;
                 _context14.next = 5;
-                return _jobDAO["default"].deleteJob(jobId);
+                return _jobDAO.default.deleteJob(jobId);
 
               case 5:
                 response = _context14.sent;
@@ -1175,9 +1175,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getServices",
     value: function () {
-      var _getServices = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee15(req, res, next) {
+      var _getServices = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee15(req, res, next) {
         var username, page, limit, user, filter, services;
-        return _regenerator["default"].wrap(function _callee15$(_context15) {
+        return _regenerator.default.wrap(function _callee15$(_context15) {
           while (1) {
             switch (_context15.prev = _context15.next) {
               case 0:
@@ -1186,7 +1186,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context15.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context15.sent;
@@ -1203,10 +1203,11 @@ var UserController = /*#__PURE__*/function () {
                   username: username
                 };
                 _context15.next = 12;
-                return _serviceDAO["default"].getServices({
+                return _serviceDAO.default.getServices({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1243,9 +1244,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addService",
     value: function () {
-      var _addService = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee16(req, res, next) {
+      var _addService = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee16(req, res, next) {
         var serviceInfo, username, user, rateAsNumber, response;
-        return _regenerator["default"].wrap(function _callee16$(_context16) {
+        return _regenerator.default.wrap(function _callee16$(_context16) {
           while (1) {
             switch (_context16.prev = _context16.next) {
               case 0:
@@ -1262,7 +1263,7 @@ var UserController = /*#__PURE__*/function () {
               case 4:
                 username = req.params.username;
                 _context16.next = 7;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 7:
                 user = _context16.sent;
@@ -1286,7 +1287,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 13:
                 _context16.next = 15;
-                return _serviceDAO["default"].addService({
+                return _serviceDAO.default.addService({
                   username: username,
                   name: serviceInfo.name,
                   rate: rateAsNumber
@@ -1335,9 +1336,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deleteService",
     value: function () {
-      var _deleteService = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee17(req, res, next) {
+      var _deleteService = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee17(req, res, next) {
         var username, serviceId, response;
-        return _regenerator["default"].wrap(function _callee17$(_context17) {
+        return _regenerator.default.wrap(function _callee17$(_context17) {
           while (1) {
             switch (_context17.prev = _context17.next) {
               case 0:
@@ -1345,7 +1346,7 @@ var UserController = /*#__PURE__*/function () {
                 username = req.params.username;
                 serviceId = req.params.id;
                 _context17.next = 5;
-                return _serviceDAO["default"].deleteService(serviceId);
+                return _serviceDAO.default.deleteService(serviceId);
 
               case 5:
                 response = _context17.sent;
@@ -1389,9 +1390,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getInsurances",
     value: function () {
-      var _getInsurances = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee18(req, res, next) {
+      var _getInsurances = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee18(req, res, next) {
         var username, page, limit, user, filter, insurances;
-        return _regenerator["default"].wrap(function _callee18$(_context18) {
+        return _regenerator.default.wrap(function _callee18$(_context18) {
           while (1) {
             switch (_context18.prev = _context18.next) {
               case 0:
@@ -1400,7 +1401,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context18.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context18.sent;
@@ -1417,7 +1418,7 @@ var UserController = /*#__PURE__*/function () {
                   username: username
                 };
                 _context18.next = 12;
-                return _insuranceDAO["default"].getInsurances({
+                return _insuranceDAO.default.getInsurances({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -1457,9 +1458,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addInsurance",
     value: function () {
-      var _addInsurance = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee19(req, res, next) {
+      var _addInsurance = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee19(req, res, next) {
         var insuranceInfo, username, user, response;
-        return _regenerator["default"].wrap(function _callee19$(_context19) {
+        return _regenerator.default.wrap(function _callee19$(_context19) {
           while (1) {
             switch (_context19.prev = _context19.next) {
               case 0:
@@ -1476,7 +1477,7 @@ var UserController = /*#__PURE__*/function () {
               case 4:
                 username = req.params.username;
                 _context19.next = 7;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 7:
                 user = _context19.sent;
@@ -1490,7 +1491,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 10:
                 _context19.next = 12;
-                return _insuranceDAO["default"].addInsurance({
+                return _insuranceDAO.default.addInsurance({
                   username: username,
                   insuranceId: insuranceInfo.insuranceId,
                   providerName: insuranceInfo.providerName,
@@ -1540,9 +1541,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "deleteInsurance",
     value: function () {
-      var _deleteInsurance = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee20(req, res, next) {
+      var _deleteInsurance = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee20(req, res, next) {
         var username, insuranceId, response;
-        return _regenerator["default"].wrap(function _callee20$(_context20) {
+        return _regenerator.default.wrap(function _callee20$(_context20) {
           while (1) {
             switch (_context20.prev = _context20.next) {
               case 0:
@@ -1550,7 +1551,7 @@ var UserController = /*#__PURE__*/function () {
                 username = req.params.username;
                 insuranceId = req.params.id;
                 _context20.next = 5;
-                return _insuranceDAO["default"].deleteInsurance(insuranceId);
+                return _insuranceDAO.default.deleteInsurance(insuranceId);
 
               case 5:
                 response = _context20.sent;
@@ -1594,9 +1595,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getPayments",
     value: function () {
-      var _getPayments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee21(req, res, next) {
+      var _getPayments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee21(req, res, next) {
         var username, page, limit, user, filter, payments;
-        return _regenerator["default"].wrap(function _callee21$(_context21) {
+        return _regenerator.default.wrap(function _callee21$(_context21) {
           while (1) {
             switch (_context21.prev = _context21.next) {
               case 0:
@@ -1605,7 +1606,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context21.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context21.sent;
@@ -1619,10 +1620,10 @@ var UserController = /*#__PURE__*/function () {
 
               case 9:
                 filter = {
-                  username: username
+                  fromUsername: username
                 };
                 _context21.next = 12;
-                return _paymentDAO["default"].getPayments({
+                return _paymentDAO.default.getPayments({
                   filter: filter,
                   page: page,
                   limit: limit
@@ -1662,9 +1663,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getMedications",
     value: function () {
-      var _getMedications = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee22(req, res, next) {
+      var _getMedications = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee22(req, res, next) {
         var username, page, limit, user, filter, medications;
-        return _regenerator["default"].wrap(function _callee22$(_context22) {
+        return _regenerator.default.wrap(function _callee22$(_context22) {
           while (1) {
             switch (_context22.prev = _context22.next) {
               case 0:
@@ -1673,7 +1674,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context22.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context22.sent;
@@ -1687,13 +1688,14 @@ var UserController = /*#__PURE__*/function () {
 
               case 9:
                 filter = {
-                  username: username
+                  toUsername: username
                 };
                 _context22.next = 12;
-                return _medicationDAO["default"].getMedications({
+                return _medicationDAO.default.getMedications({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1730,9 +1732,9 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "getReports",
     value: function () {
-      var _getReports = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee23(req, res, next) {
+      var _getReports = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee23(req, res, next) {
         var username, page, limit, user, filter, labReports;
-        return _regenerator["default"].wrap(function _callee23$(_context23) {
+        return _regenerator.default.wrap(function _callee23$(_context23) {
           while (1) {
             switch (_context23.prev = _context23.next) {
               case 0:
@@ -1741,7 +1743,7 @@ var UserController = /*#__PURE__*/function () {
                 page = req.query.page ? parseInt(req.query.page, 10) : 0;
                 limit = req.query.limit ? parseInt(req.query.limit, 10) : 10;
                 _context23.next = 6;
-                return _userDAO["default"].getUser(username);
+                return _userDAO.default.getUser(username);
 
               case 6:
                 user = _context23.sent;
@@ -1755,13 +1757,14 @@ var UserController = /*#__PURE__*/function () {
 
               case 9:
                 filter = {
-                  username: username
+                  fromUsername: username
                 };
                 _context23.next = 12;
-                return _labReportDAO["default"].getLabReports({
+                return _labReportDAO.default.getLabReports({
                   filter: filter,
                   page: page,
-                  limit: limit
+                  limit: limit,
+                  reverse: true
                 });
 
               case 12:
@@ -1799,4 +1802,4 @@ var UserController = /*#__PURE__*/function () {
   return UserController;
 }();
 
-exports["default"] = UserController;
+exports.default = UserController;

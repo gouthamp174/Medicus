@@ -18,9 +18,13 @@ export default class NoteDAO {
     }
   }
 
-  static async getNotes({filter={}, page=0, limit=10}) {
+  static async getNotes({filter={}, page=0, limit=10, reverse=false}) {
     try {
-      const cursor = await this.notes.find(filter).skip(page*limit).limit(limit)
+      const cursor = await this.notes
+        .find(filter)
+        .sort({_id: (reverse) ? -1 : 1 })
+        .skip(page*limit)
+        .limit(limit)
       return await cursor.toArray()
     } catch (err) {
       return []
@@ -31,10 +35,11 @@ export default class NoteDAO {
     return await this.notes.findOne({ _id: ObjectId(id) })
   }
 
-  static async addNote({appointmentId, title, content, date}) {
+  static async addNote({fromUsername, appointmentId, title, content, date}) {
     try {
       const response = await this.notes.insertOne(
         {
+          fromUsername: fromUsername,
           appointmentId: ObjectId(appointmentId),
           title: title,
           content: content,

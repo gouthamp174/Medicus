@@ -1,62 +1,47 @@
 import React from 'react';
-import { Switch, Route, useRouteMatch } from "react-router-dom";
-import { SessionContext } from '../../context/context.js';
-import { FluidContainer, Row, Col } from "../../components/layout.js";
-import { WidgetRow } from "../../components/widget.js";
+import { useSelector } from 'react-redux';
+import { Col, FluidContainer, Row } from '../../components/layout.js';
+import { WidgetColumns, WidgetDeck, WidgetRow } from '../../components/widgets.js';
 
-import { TopBar } from '../home/topbar.js';
-import WelcomeWidget from "./widgets/welcomeWidget.js";
-import WaitingAppointments from "./widgets/waitingAppointments.js";
-import RecentMedicationsWidget from "./widgets/recentMedicationsWidget.js";
-import RecentPaymentsWidget from "./widgets/recentPaymentsWidget.js";
+import TitleBar from '../home/titleBar';
+import Banner from './widgets/banner';
+import RecentMedicationWidget from './widgets/recentMedications';
+import RecentPaymentWidget from './widgets/recentPayments';
+import TodayAppointmentWidget from './widgets/todaysAppointment';
 
 
-export default class DashboardApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default function DashBoardApp(props) {
+    const session = useSelector(s => s.session);
 
-  render() {
     return (
-      <FluidContainer className="h-100 overflow-y d-flex flex-column">
-        <TopBar title="Dashboard" />
-        <Row className="flex-grow-1">
-          <Col className="py-3">
-            <SessionContext.Consumer>
-              {sessionCtx => (
-                <FluidContainer>
-                  <WidgetRow>
-                    <Col>
-                      <WelcomeWidget
-                        session={sessionCtx.session}
-                      />
-                    </Col>
-                  </WidgetRow>
-                  <WidgetRow>
-                    <Col className="col-12 col-md">
-                      <WaitingAppointments
-                        session={sessionCtx.session}
-                      />
-                    </Col>
-                    {!sessionCtx.session.isPhysician &&
-                      <Col className="col-12 col-md">
-                        <RecentMedicationsWidget
-                          session={sessionCtx.session}
-                        />
-                      </Col>
-                    }
-                    <Col className="col-12 col-md">
-                      <RecentPaymentsWidget
-                        session={sessionCtx.session}
-                      />
-                    </Col>
-                  </WidgetRow>
-                </FluidContainer>
-              )}
-            </SessionContext.Consumer>
-          </Col>
-        </Row>
-      </FluidContainer>
+        <>
+            <TitleBar title="Dashboard" />
+            <Row className="flex-grow-1">
+                <Col className="pt-3">
+                    <FluidContainer>
+                        <WidgetRow>
+                            <Col>
+                                <Banner 
+                                    session={session}
+                                />
+                            </Col>
+                        </WidgetRow>
+                        <WidgetColumns>
+                            <TodayAppointmentWidget 
+                                session={session}
+                            />
+                            {!session.isPhysician &&
+                                <RecentMedicationWidget 
+                                    session={session}
+                                />
+                            }
+                            <RecentPaymentWidget 
+                                session={session}
+                            />
+                        </WidgetColumns>
+                    </FluidContainer>
+                </Col>
+            </Row>
+        </>
     );
-  }
 }

@@ -1,29 +1,28 @@
-import React from 'react';
-import { Switch, Route, useRouteMatch } from "react-router-dom";
-import { SessionContext } from '../../context/context.js';
+import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { Loader } from '../../components/loaders';
 
-import ChatView from "./chatView.js";
+const ChatView = lazy(() => import('./views/chatView'));
 
 
-export default class ChatApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default function ChatApp(props) {
+    const session = useSelector(s => s.session);
 
-  render() {
     return (
-      <SessionContext.Consumer>
-        {sessionCtx => (
-          <Switch>
-            <Route
-              path={`${this.props.match.path}/:id`}
-              render={(props) => (
-                <ChatView {...props} session={sessionCtx.session} />
-              )}
-            />
-          </Switch>
-        )}
-      </SessionContext.Consumer>
+        <Suspense fallback={<Loader isLoading={true} />}>
+            <Switch>
+                <Route
+                    path={`${props.match.path}/:id`}
+                    render={(props) => (
+                        <ChatView 
+                            {...props}
+                            id={props.match.params.id}
+                            session={session} 
+                        />
+                    )}
+                />
+            </Switch>
+        </Suspense>
     );
-  }
 }

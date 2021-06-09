@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _express = require("express");
 
@@ -26,10 +26,10 @@ router.get('/', _utils.limiter, _utils.speedLimiter, function (req, res) {
   });
 }); // Authorize user for all requests except for paths starting with '/auth'.
 
-router.use('/', _authController["default"].authorizeSession);
+router.use('/', _authController.default.authorizeSession);
 router.use('/auth', _router.authRouter);
 router.use('/users', _router.userRouter);
-router.use('/appointments', _router2["default"]);
-router.use('/chats', _router3["default"]);
+router.use('/appointments', _router2.default);
+router.use('/chats', _router3.default);
 var _default = router;
-exports["default"] = _default;
+exports.default = _default;

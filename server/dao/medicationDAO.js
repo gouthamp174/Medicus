@@ -18,9 +18,13 @@ export default class MedicationDAO {
     }
   }
 
-  static async getMedications({filter={}, page=0, limit=10}) {
+  static async getMedications({filter={}, page=0, limit=10, reverse=false}) {
     try {
-      const cursor = await this.medications.find(filter).skip(page*limit).limit(limit)
+      const cursor = await this.medications
+        .find(filter)
+        .sort({_id: (reverse) ? -1 : 1 })
+        .skip(page*limit)
+        .limit(limit)
       return await cursor.toArray()
     } catch (err) {
       return []
@@ -31,14 +35,15 @@ export default class MedicationDAO {
     return await this.medications.findOne({ _id: ObjectId(id) })
   }
 
-  static async addMedication({username, name, dosage, appointmentId}) {
+  static async addMedication({fromUsername, toUsername, appointmentId, name, dosage}) {
     try {
       const response = await this.medications.insertOne(
         {
-          username: username,
+          fromUsername: fromUsername,
+          toUsername: toUsername,
+          appointmentId: appointmentId,
           name: name,
-          dosage: dosage,
-          appointmentId: appointmentId
+          dosage: dosage
         },
         {
           writeConcern: { w: "majority" }

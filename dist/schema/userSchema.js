@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = createUserSchema;
+exports.default = createUserSchema;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -16,8 +16,8 @@ function createUserSchema(_x) {
 }
 
 function _createUserSchema() {
-  _createUserSchema = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-    return _regenerator["default"].wrap(function _callee$(_context) {
+  _createUserSchema = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -57,7 +57,7 @@ function _createUserSchema() {
                       description: "Date of Birth."
                     },
                     gender: {
-                      "enum": ["Male", "Female", "Other"],
+                      enum: ["Male", "Female", "Other"],
                       description: "Gender of user."
                     },
                     emailId: {

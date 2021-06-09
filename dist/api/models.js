@@ -27,16 +27,16 @@ var _errors = require("./errors");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var User = /*#__PURE__*/function () {
   function User() {
     var userInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, User);
+    (0, _classCallCheck2.default)(this, User);
     this.info = userInfo;
   }
 
-  (0, _createClass2["default"])(User, [{
+  (0, _createClass2.default)(User, [{
     key: "toShortJson",
     value: function toShortJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -68,19 +68,19 @@ var User = /*#__PURE__*/function () {
           _id = _this$info2._id,
           password = _this$info2.password,
           detailsId = _this$info2.detailsId,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info2, ["_id", "password", "detailsId"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info2, ["_id", "password", "detailsId"]);
       return _objectSpread({}, otherInfo);
     }
   }, {
     key: "comparePassword",
     value: function () {
-      var _comparePassword = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(plainText) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _comparePassword = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(plainText) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _bcryptjs["default"].compare(plainText, this.info.password);
+                return _bcryptjs.default.compare(plainText, this.info.password);
 
               case 2:
                 return _context.abrupt("return", _context.sent);
@@ -108,11 +108,11 @@ exports.User = User;
 var Session = /*#__PURE__*/function () {
   function Session() {
     var sessionInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Session);
+    (0, _classCallCheck2.default)(this, Session);
     this.info = sessionInfo;
   }
 
-  (0, _createClass2["default"])(Session, [{
+  (0, _createClass2.default)(Session, [{
     key: "toJson",
     value: function toJson() {
       try {
@@ -122,7 +122,7 @@ var Session = /*#__PURE__*/function () {
 
         var _this$info3 = this.info,
             _id = _this$info3._id,
-            otherInfo = (0, _objectWithoutProperties2["default"])(_this$info3, ["_id"]);
+            otherInfo = (0, _objectWithoutProperties2.default)(_this$info3, ["_id"]);
         return _objectSpread({
           id: this.id
         }, otherInfo);
@@ -133,10 +133,10 @@ var Session = /*#__PURE__*/function () {
   }, {
     key: "encoded",
     value: function () {
-      var _encoded = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _encoded = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var _this$info4, _id, username, startTime;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -151,7 +151,7 @@ var Session = /*#__PURE__*/function () {
 
               case 3:
                 _this$info4 = this.info, _id = _this$info4._id, username = _this$info4.username, startTime = _this$info4.startTime;
-                return _context2.abrupt("return", _jsonwebtoken["default"].sign({
+                return _context2.abrupt("return", _jsonwebtoken.default.sign({
                   exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 365,
                   id: _id,
                   username: username,
@@ -180,13 +180,13 @@ var Session = /*#__PURE__*/function () {
   }], [{
     key: "decoded",
     value: function () {
-      var _decoded = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(encodedInfo) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _decoded = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(encodedInfo) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.prev = 0;
-                return _context3.abrupt("return", _jsonwebtoken["default"].verify(encodedInfo, process.env.DB_SECRET_KEY));
+                return _context3.abrupt("return", _jsonwebtoken.default.verify(encodedInfo, process.env.DB_SECRET_KEY));
 
               case 4:
                 _context3.prev = 4;
@@ -216,11 +216,11 @@ exports.Session = Session;
 var Degree = /*#__PURE__*/function () {
   function Degree() {
     var degreeInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Degree);
+    (0, _classCallCheck2.default)(this, Degree);
     this.info = degreeInfo;
   }
 
-  (0, _createClass2["default"])(Degree, [{
+  (0, _createClass2.default)(Degree, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -229,7 +229,7 @@ var Degree = /*#__PURE__*/function () {
 
       var _this$info5 = this.info,
           _id = _this$info5._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info5, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info5, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -243,11 +243,11 @@ exports.Degree = Degree;
 var Job = /*#__PURE__*/function () {
   function Job() {
     var jobInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Job);
+    (0, _classCallCheck2.default)(this, Job);
     this.info = jobInfo;
   }
 
-  (0, _createClass2["default"])(Job, [{
+  (0, _createClass2.default)(Job, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -256,7 +256,7 @@ var Job = /*#__PURE__*/function () {
 
       var _this$info6 = this.info,
           _id = _this$info6._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info6, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info6, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -270,11 +270,11 @@ exports.Job = Job;
 var Service = /*#__PURE__*/function () {
   function Service() {
     var serviceInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Service);
+    (0, _classCallCheck2.default)(this, Service);
     this.info = serviceInfo;
   }
 
-  (0, _createClass2["default"])(Service, [{
+  (0, _createClass2.default)(Service, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -283,7 +283,7 @@ var Service = /*#__PURE__*/function () {
 
       var _this$info7 = this.info,
           _id = _this$info7._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info7, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info7, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -297,11 +297,11 @@ exports.Service = Service;
 var Insurance = /*#__PURE__*/function () {
   function Insurance() {
     var insuranceInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Insurance);
+    (0, _classCallCheck2.default)(this, Insurance);
     this.info = insuranceInfo;
   }
 
-  (0, _createClass2["default"])(Insurance, [{
+  (0, _createClass2.default)(Insurance, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -310,7 +310,7 @@ var Insurance = /*#__PURE__*/function () {
 
       var _this$info8 = this.info,
           _id = _this$info8._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info8, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info8, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -324,11 +324,11 @@ exports.Insurance = Insurance;
 var Payment = /*#__PURE__*/function () {
   function Payment() {
     var paymentInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Payment);
+    (0, _classCallCheck2.default)(this, Payment);
     this.info = paymentInfo;
   }
 
-  (0, _createClass2["default"])(Payment, [{
+  (0, _createClass2.default)(Payment, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -337,7 +337,7 @@ var Payment = /*#__PURE__*/function () {
 
       var _this$info9 = this.info,
           _id = _this$info9._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info9, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info9, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -352,11 +352,11 @@ exports.Payment = Payment;
 var Appointment = /*#__PURE__*/function () {
   function Appointment() {
     var appointmentInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Appointment);
+    (0, _classCallCheck2.default)(this, Appointment);
     this.info = appointmentInfo;
   }
 
-  (0, _createClass2["default"])(Appointment, [{
+  (0, _createClass2.default)(Appointment, [{
     key: "toShortJson",
     value: function toShortJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -384,7 +384,7 @@ var Appointment = /*#__PURE__*/function () {
 
       var _this$info11 = this.info,
           _id = _this$info11._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info11, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info11, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -398,11 +398,11 @@ exports.Appointment = Appointment;
 var Note = /*#__PURE__*/function () {
   function Note() {
     var noteInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Note);
+    (0, _classCallCheck2.default)(this, Note);
     this.info = noteInfo;
   }
 
-  (0, _createClass2["default"])(Note, [{
+  (0, _createClass2.default)(Note, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -411,7 +411,7 @@ var Note = /*#__PURE__*/function () {
 
       var _this$info12 = this.info,
           _id = _this$info12._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info12, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info12, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -425,11 +425,11 @@ exports.Note = Note;
 var Medication = /*#__PURE__*/function () {
   function Medication() {
     var medicationInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Medication);
+    (0, _classCallCheck2.default)(this, Medication);
     this.info = medicationInfo;
   }
 
-  (0, _createClass2["default"])(Medication, [{
+  (0, _createClass2.default)(Medication, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -438,7 +438,7 @@ var Medication = /*#__PURE__*/function () {
 
       var _this$info13 = this.info,
           _id = _this$info13._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info13, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info13, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -452,11 +452,11 @@ exports.Medication = Medication;
 var LabReport = /*#__PURE__*/function () {
   function LabReport() {
     var labReportInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, LabReport);
+    (0, _classCallCheck2.default)(this, LabReport);
     this.info = labReportInfo;
   }
 
-  (0, _createClass2["default"])(LabReport, [{
+  (0, _createClass2.default)(LabReport, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -465,7 +465,7 @@ var LabReport = /*#__PURE__*/function () {
 
       var _this$info14 = this.info,
           _id = _this$info14._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info14, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info14, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -480,11 +480,11 @@ exports.LabReport = LabReport;
 var Chat = /*#__PURE__*/function () {
   function Chat() {
     var chatInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Chat);
+    (0, _classCallCheck2.default)(this, Chat);
     this.info = chatInfo;
   }
 
-  (0, _createClass2["default"])(Chat, [{
+  (0, _createClass2.default)(Chat, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -493,7 +493,7 @@ var Chat = /*#__PURE__*/function () {
 
       var _this$info15 = this.info,
           _id = _this$info15._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info15, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info15, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);
@@ -507,11 +507,11 @@ exports.Chat = Chat;
 var Message = /*#__PURE__*/function () {
   function Message() {
     var messageInfo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2["default"])(this, Message);
+    (0, _classCallCheck2.default)(this, Message);
     this.info = messageInfo;
   }
 
-  (0, _createClass2["default"])(Message, [{
+  (0, _createClass2.default)(Message, [{
     key: "toJson",
     value: function toJson() {
       if (!this.info || this.info && !Object.keys(this.info).length) {
@@ -520,7 +520,7 @@ var Message = /*#__PURE__*/function () {
 
       var _this$info16 = this.info,
           _id = _this$info16._id,
-          otherInfo = (0, _objectWithoutProperties2["default"])(_this$info16, ["_id"]);
+          otherInfo = (0, _objectWithoutProperties2.default)(_this$info16, ["_id"]);
       return _objectSpread({
         id: _id
       }, otherInfo);

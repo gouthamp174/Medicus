@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,7 +21,7 @@ var _socket = _interopRequireDefault(require("socket.io"));
 
 var _messageDAO = _interopRequireDefault(require("../../dao/messageDAO"));
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -29,14 +29,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var ChatInterface = /*#__PURE__*/function () {
   function ChatInterface() {
-    (0, _classCallCheck2["default"])(this, ChatInterface);
+    (0, _classCallCheck2.default)(this, ChatInterface);
   }
 
-  (0, _createClass2["default"])(ChatInterface, null, [{
+  (0, _createClass2.default)(ChatInterface, null, [{
     key: "register",
     value: function () {
-      var _register = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(io, socket) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _register = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(io, socket) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -68,8 +68,8 @@ var ChatInterface = /*#__PURE__*/function () {
   }, {
     key: "join",
     value: function () {
-      var _join = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(data, callback) {
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+      var _join = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(data, callback) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -100,8 +100,8 @@ var ChatInterface = /*#__PURE__*/function () {
   }, {
     key: "leave",
     value: function () {
-      var _leave = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(data, callback) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _leave = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(data, callback) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -132,8 +132,8 @@ var ChatInterface = /*#__PURE__*/function () {
   }, {
     key: "disconnect",
     value: function () {
-      var _disconnect = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(reason) {
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _disconnect = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(reason) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -156,10 +156,10 @@ var ChatInterface = /*#__PURE__*/function () {
   }, {
     key: "disconnecting",
     value: function () {
-      var _disconnecting = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(reason) {
+      var _disconnecting = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(reason) {
         var _iterator, _step, room;
 
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -202,15 +202,15 @@ var ChatInterface = /*#__PURE__*/function () {
   }, {
     key: "receive",
     value: function () {
-      var _receive = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(data) {
+      var _receive = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(data) {
         var addResponse, message;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.prev = 0;
                 _context6.next = 3;
-                return _messageDAO["default"].addMessage({
+                return _messageDAO.default.addMessage({
                   chatId: data.chatId,
                   type: "user",
                   sender: data.sender,
@@ -230,11 +230,11 @@ var ChatInterface = /*#__PURE__*/function () {
 
               case 6:
                 _context6.next = 8;
-                return _messageDAO["default"].getMessage(addResponse.id);
+                return _messageDAO.default.getMessage(addResponse.id);
 
               case 8:
                 message = _context6.sent;
-                ChatInterface.io["in"](this.chatId).emit("chat", message);
+                ChatInterface.io.in(this.chatId).emit("chat", message);
                 _context6.next = 15;
                 break;
 
@@ -261,5 +261,5 @@ var ChatInterface = /*#__PURE__*/function () {
   return ChatInterface;
 }();
 
-exports["default"] = ChatInterface;
-(0, _defineProperty2["default"])(ChatInterface, "io", void 0);
+exports.default = ChatInterface;
+(0, _defineProperty2.default)(ChatInterface, "io", void 0);

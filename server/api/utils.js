@@ -1,5 +1,4 @@
 import "express"
-import "axios" // Use axios to make http requests
 import RateLimit from "express-rate-limit" // Limits allowed calls for x amount of ms
 import SlowDown from "express-slow-down" // Slows each following request if spammed
 

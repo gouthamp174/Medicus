@@ -18,9 +18,13 @@ export default class PaymentDAO {
     }
   }
 
-  static async getPayments({filter={}, page=0, limit=10}) {
+  static async getPayments({filter={}, page=0, limit=10, reverse=false}) {
     try {
-      const cursor = await this.payments.find(filter).skip(page*limit).limit(limit)
+      const cursor = await this.payments
+        .find(filter)
+        .sort({_id: (reverse) ? -1 : 1 })
+        .skip(page*limit)
+        .limit(limit)
       return await cursor.toArray()
     } catch (err) {
       return []
@@ -31,7 +35,7 @@ export default class PaymentDAO {
     return await this.payments.findOne({ _id: ObjectId(id) })
   }
 
-  static async addPayment({username, amount, date, appointmentId}) {
+  static async addPayment({fromUsername, toUsername, appointmentId, amount, date}) {
     try {
       const amountAsNumber = Number(amount)
       if (amountAsNumber === NaN) {
@@ -40,10 +44,11 @@ export default class PaymentDAO {
 
       const response = await this.payments.insertOne(
         {
-          username: username,
+          fromUsername: fromUsername,
+          toUsername: toUsername,
+          appointmentId: appointmentId,
           amount: amountAsNumber,
-          date: new Date(date),
-          appointmentId: appointmentId
+          date: new Date(date)
         },
         {
           writeConcern: { w: "majority" }

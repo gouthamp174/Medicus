@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = createMessageSchema;
+exports.default = createMessageSchema;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -16,8 +16,8 @@ function createMessageSchema(_x) {
 }
 
 function _createMessageSchema() {
-  _createMessageSchema = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-    return _regenerator["default"].wrap(function _callee$(_context) {
+  _createMessageSchema = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -37,7 +37,7 @@ function _createMessageSchema() {
                       description: "Associated Chat Id of message."
                     },
                     type: {
-                      "enum": ["user", "system", "info"],
+                      enum: ["user", "system", "info"],
                       description: "Type of message."
                     },
                     sender: {

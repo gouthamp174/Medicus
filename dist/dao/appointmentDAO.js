@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -23,18 +23,18 @@ var _chatDAO = _interopRequireDefault(require("./chatDAO"));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var AppointmentDAO = /*#__PURE__*/function () {
   function AppointmentDAO() {
-    (0, _classCallCheck2["default"])(this, AppointmentDAO);
+    (0, _classCallCheck2.default)(this, AppointmentDAO);
   }
 
-  (0, _createClass2["default"])(AppointmentDAO, null, [{
+  (0, _createClass2.default)(AppointmentDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -99,7 +99,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "getAppointments",
     value: function () {
-      var _getAppointments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _getAppointments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var _ref,
             _ref$filter,
             filter,
@@ -110,7 +110,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
             cursor,
             _args2 = arguments;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -118,7 +118,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
                 _context2.prev = 1;
                 _context2.next = 4;
                 return this.appointments.find(filter).sort({
-                  "startTime": -1
+                  "_id": -1
                 }).skip(page * limit).limit(limit);
 
               case 4:
@@ -152,7 +152,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "searchAppointments",
     value: function () {
-      var _searchAppointments = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
+      var _searchAppointments = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
         var _ref2,
             _ref2$filter,
             filter,
@@ -165,7 +165,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
             cursor,
             _args3 = arguments;
 
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -221,8 +221,8 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "getAppointment",
     value: function () {
-      var _getAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(id) {
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+      var _getAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(id) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -258,9 +258,9 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "addAppointment",
     value: function () {
-      var _addAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(_ref3) {
+      var _addAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(_ref3) {
         var title, patient, physician, status, startTime, endTime, description, serviceName, serviceCharge, paymentBalance, response;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -316,8 +316,8 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteAppointment",
     value: function () {
-      var _deleteAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(id) {
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+      var _deleteAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(id) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -357,9 +357,9 @@ var AppointmentDAO = /*#__PURE__*/function () {
   }, {
     key: "updateAppointment",
     value: function () {
-      var _updateAppointment = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(id, updateQuery) {
+      var _updateAppointment = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(id, updateQuery) {
         var response;
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+        return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -412,7 +412,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
   return AppointmentDAO;
 }();
 
-exports["default"] = AppointmentDAO;
-(0, _defineProperty2["default"])(AppointmentDAO, "users", void 0);
-(0, _defineProperty2["default"])(AppointmentDAO, "appointments", void 0);
-(0, _defineProperty2["default"])(AppointmentDAO, "chats", void 0);
+exports.default = AppointmentDAO;
+(0, _defineProperty2.default)(AppointmentDAO, "users", void 0);
+(0, _defineProperty2.default)(AppointmentDAO, "appointments", void 0);
+(0, _defineProperty2.default)(AppointmentDAO, "chats", void 0);

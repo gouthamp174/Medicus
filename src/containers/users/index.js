@@ -1,50 +1,46 @@
-import React from 'react';
-import { Switch, Route, useRouteMatch } from "react-router-dom";
-import { SessionContext } from '../../context/context.js';
+import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router';
+import { Loader } from '../../components/loaders';
 
-import { PhysiciansView, PatientsView } from "./usersView.js";
-import UserView from "./userView.js";
+const UserView = lazy(() => import("./views/user"));
+const SearchPatientsView = lazy(() => import("./views/searchPatients"));
+const SearchPhysiciansView = lazy(() => import("./views/searchPhysicians"));
 
 
-export default class UserApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default function UserApp(props) {
+    const session = useSelector(s => s.session);
 
-  render() {
     return (
-      <SessionContext.Consumer>
-        {sessionCtx => (
-          <Switch>
-            <Route
-              path={this.props.match.path}
-              exact={true}
-              render={(props) => {
-                if (sessionCtx.session.isPhysician) {
-                  return (
-                    <PatientsView {...props} session={sessionCtx.session} />
-                  );
-                } else {
-                  return (
-                    <PhysiciansView {...props} session={sessionCtx.session} />
-                  );
-                }
-              }}
-            />
-            <Route
-              path={`${this.props.match.path}/:username`}
-              render={(props) => (
-                <UserView
-                  {...props}
-                  key={props.match.params.username}
-                  username={props.match.params.username}
-                  session={sessionCtx.session}
+        <Suspense fallback={<Loader isLoading={true} />}>
+            <Switch>
+                <Route 
+                    path={props.match.path}
+                    exact={true}
+                    render={(props) => {
+                        if (session.isPhysician) {
+                            return (
+                                <SearchPatientsView {...props} session={session} />
+                            );
+                        } else {
+                            return (
+                                <SearchPhysiciansView {...props} session={session} />
+                            );
+                        }
+                    }}
                 />
-              )}
-            />
-          </Switch>
-        )}
-      </SessionContext.Consumer>
+                <Route
+                    path={`${props.match.path}/:username`}
+                    render={(props) => (
+                        <UserView
+                            {...props}
+                            key={props.match.params.username}
+                            username={props.match.params.username}
+                            session={session}
+                        />
+                    )}
+                />
+            </Switch>
+        </Suspense>
     );
-  }
 }

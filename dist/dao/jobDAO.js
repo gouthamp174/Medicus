@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -21,14 +21,14 @@ var _mongodb = require("mongodb");
 
 var JobDAO = /*#__PURE__*/function () {
   function JobDAO() {
-    (0, _classCallCheck2["default"])(this, JobDAO);
+    (0, _classCallCheck2.default)(this, JobDAO);
   }
 
-  (0, _createClass2["default"])(JobDAO, null, [{
+  (0, _createClass2.default)(JobDAO, null, [{
     key: "injectDB",
     value: function () {
-      var _injectDB = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(conn) {
-        return _regenerator["default"].wrap(function _callee$(_context) {
+      var _injectDB = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(conn) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -75,10 +75,10 @@ var JobDAO = /*#__PURE__*/function () {
   }, {
     key: "getJobs",
     value: function () {
-      var _getJobs = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(_ref) {
+      var _getJobs = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {
         var _ref$filter, filter, _ref$page, page, _ref$limit, limit, cursor;
 
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -117,8 +117,8 @@ var JobDAO = /*#__PURE__*/function () {
   }, {
     key: "getJob",
     value: function () {
-      var _getJob = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(id) {
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+      var _getJob = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -147,9 +147,9 @@ var JobDAO = /*#__PURE__*/function () {
   }, {
     key: "addJob",
     value: function () {
-      var _addJob = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(_ref2) {
+      var _addJob = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref2) {
         var username, title, fromDate, toDate, company, response;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -200,8 +200,8 @@ var JobDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteJobs",
     value: function () {
-      var _deleteJobs = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(filter) {
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+      var _deleteJobs = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(filter) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -252,9 +252,9 @@ var JobDAO = /*#__PURE__*/function () {
   }, {
     key: "deleteJob",
     value: function () {
-      var _deleteJob = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6(id) {
+      var _deleteJob = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(id) {
         var response;
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -296,5 +296,5 @@ var JobDAO = /*#__PURE__*/function () {
   return JobDAO;
 }();
 
-exports["default"] = JobDAO;
-(0, _defineProperty2["default"])(JobDAO, "jobs", void 0);
+exports.default = JobDAO;
+(0, _defineProperty2.default)(JobDAO, "jobs", void 0);

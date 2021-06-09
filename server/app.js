@@ -40,7 +40,7 @@ app.set('trust proxy', 1) // When using something like nginx or apache as a prox
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      "default-src": ["'self'", "*.bootstrapcdn.com", "*.googleapis.com", "*.gstatic.com"],
+      "default-src": ["'self'", "ws:", "*.bootstrapcdn.com", "*.googleapis.com", "*.gstatic.com"],
       "script-src": ["'self'", "*.bootstrapcdn.com", "*.cloudflare.com", "*.jquery.com", "*.googleapis.com"],
       "img-src": ["'self'", "data:", "blob:", "*.w3.org"]
     }
@@ -50,13 +50,14 @@ app.use(helmet({
 // Custom Middleware
 app.use(notFound)
 app.use(errorHandler)
-app.use('/public', express.static(__dirname+'/../public/'))
+app.use('/static', express.static(__dirname+'/../build/static'))
+app.use('/public', express.static(__dirname+'/../build/'))
 app.use('/api', AppRouter)
 
 
 // Basic Routing
 app.get('/robots.txt', (req, res) => res.sendFile('robots.txt', {root: __dirname}))
-app.get('*', (req, res) => res.sendFile('index.html', {root: __dirname+'/../public/'}))
+app.get('*', (req, res) => res.sendFile('index.html', {root: __dirname+'/../build/'}))
 
 
 // Establish a new connection to DB.
