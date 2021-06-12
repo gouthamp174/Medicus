@@ -99,7 +99,7 @@ var UserApi = /*#__PURE__*/function () {
               case 14:
                 _context.next = 16;
                 return _paymentDAO.default.deletePayments({
-                  username: username
+                  fromUsername: username
                 });
 
               case 16:
@@ -483,7 +483,7 @@ var UserController = /*#__PURE__*/function () {
 
               case 10:
                 _context5.next = 12;
-                return UserApi.deleteUser(user.username, user.profilePhoto);
+                return UserApi.deleteUser(user.username, user.profilePhotoId);
 
               case 12:
                 res.json({

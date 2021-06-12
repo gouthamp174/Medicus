@@ -35,7 +35,7 @@ export class UserApi {
         throw new HttpInternalServerError(serviceResponse.error)
       }
 
-      const paymentResponse = await PaymentDAO.deletePayments({ username: username })
+      const paymentResponse = await PaymentDAO.deletePayments({ fromUsername: username })
       if (!paymentResponse.success) {
         throw new HttpInternalServerError(paymentResponse.error)
       }
@@ -169,7 +169,7 @@ export default class UserController {
         throw new HttpBadRequestError("Invalid request. Bad input parameters.")
       }
 
-      await UserApi.deleteUser(user.username, user.profilePhoto)
+      await UserApi.deleteUser(user.username, user.profilePhotoId)
 
       res.json({ success: true })
     } catch (err) {
