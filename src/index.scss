@@ -89,6 +89,12 @@ a {
   border-radius: 0.5rem!important;
 }
 
+form {
+  .rounded {
+    border-radius: 0.25rem!important;
+  }
+}
+
 // Global card styles
 .card.rounded {
   .card-header {

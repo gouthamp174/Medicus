@@ -64,25 +64,27 @@ export default function AddSection(props) {
                 </FormRow>
             }
             <FormRow>
-                <FormLabel for="servicesForm01" className="col-sm-4">Name</FormLabel>
-                <FormGroup className="col-sm-8">
-                  <input id="servicesForm01" name="name" type="text" 
-                    className="form-control" value={fields.name} onChange={handleChange}
-                        placeholder="Name of Service"
-                  />
+                <FormGroup className="col-12 col-md">
+                    <FormLabel for="servicesForm01" className="md-font-sm text-muted">
+                        Service Name
+                    </FormLabel>
+                    <input id="servicesForm01" name="name" type="text" 
+                        className="form-control" value={fields.name} onChange={handleChange}
+                            placeholder="Try &quot;Health check-up&quot;"
+                    />
                 </FormGroup>
-            </FormRow>
-            <FormRow>
-                <FormLabel for="servicesForm02" className="col-sm-4">Rate</FormLabel>
-                <FormGroup className="col-sm-8">
-                  <input id="servicesForm02" name="rate" type="number" 
-                    className="form-control" value={fields.rate} onChange={handleChange}
-                        placeholder="Rate" min="0" step="0.01" 
-                  />
+                <FormGroup className="col-12 col-md">
+                    <FormLabel for="servicesForm02" className="md-font-sm text-muted">
+                        Rate ($)
+                    </FormLabel>
+                    <input id="servicesForm02" name="rate" type="number" 
+                        className="form-control" value={fields.rate} onChange={handleChange}
+                            placeholder="00.00" min="0" step="0.01" 
+                    />
                 </FormGroup>
-            </FormRow>
-            <FormRow className="justify-content-center">
-                <FormSubmit className="col-auto col-md-4">Add</FormSubmit>
+                <FormGroup className="col-sm-auto align-self-end">
+                    <FormSubmit>Add</FormSubmit>
+                </FormGroup>
             </FormRow>
         </Form>
     );

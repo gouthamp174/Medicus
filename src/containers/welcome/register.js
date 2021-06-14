@@ -145,51 +145,51 @@ export default function RegisterForm(props) {
                     </small>
                 </FormGroup>
             </FormRow>
-            <FormGroup className="my-0">
-                <FormLabel for="registerInput6" className="md-font-sm text-muted">
-                    Birthday
-                </FormLabel>
-                <FormRow>
-                    <FormGroup className="col-sm-4">
-                        <SelectMonthByName
-                            id="registerInput6"
-                            className="form-control"
-                            name="dobMonth"
-                            label="Month"
-                            shortForm={true}
-                            value={fields.dobMonth}
-                            handleChange={handleChange}
-                            required={true}
-                        />
-                    </FormGroup>
-                    <FormGroup className="col-sm-4">
-                        <SelectDate
-                            id="registerInput7"
-                            className="form-control"
-                            name="dobDay"
-                            label="Day"
-                            shortForm={true}
-                            value={fields.dobDay}
-                            handleChange={handleChange}
-                            required={true}
-                        />
-                    </FormGroup>
-                    <FormGroup className="col-sm-4">
-                        <SelectYear
-                            id="registerInput8"
-                            className="form-control"
-                            name="dobYear"
-                            label="Year"
-                            startYear={today.getFullYear()-100}
-                            endYear={today.getFullYear()}
-                            value={fields.dobYear}
-                            handleChange={handleChange}
-                            required={true}
-                        />
-                    </FormGroup>
-                </FormRow>
-            </FormGroup>
             <FormRow>
+                <FormGroup className="my-0 col-sm-6">
+                    <FormLabel for="registerInput6" className="md-font-sm text-muted">
+                        Birthday
+                    </FormLabel>
+                    <FormRow>
+                        <FormGroup className="col-sm-auto">
+                            <SelectMonthByName
+                                id="registerInput6"
+                                className="form-control"
+                                name="dobMonth"
+                                label="Month"
+                                shortForm={true}
+                                value={fields.dobMonth}
+                                handleChange={handleChange}
+                                required={true}
+                            />
+                        </FormGroup>
+                        <FormGroup className="col-sm-auto">
+                            <SelectDate
+                                id="registerInput7"
+                                className="form-control"
+                                name="dobDay"
+                                label="Day"
+                                shortForm={true}
+                                value={fields.dobDay}
+                                handleChange={handleChange}
+                                required={true}
+                            />
+                        </FormGroup>
+                        <FormGroup className="col-sm-auto">
+                            <SelectYear
+                                id="registerInput8"
+                                className="form-control"
+                                name="dobYear"
+                                label="Year"
+                                startYear={today.getFullYear()-100}
+                                endYear={today.getFullYear()}
+                                value={fields.dobYear}
+                                handleChange={handleChange}
+                                required={true}
+                            />
+                        </FormGroup>
+                    </FormRow>
+                </FormGroup>
                 <FormGroup className="col-sm-6">
                     <FormLabel for="registerInput9" className="md-font-sm text-muted">
                         Gender
@@ -204,32 +204,40 @@ export default function RegisterForm(props) {
                         required={true}
                     />
                 </FormGroup>
-                <FormGroup className="col-sm-6">
-                    <FormLabel for="registerInput10" className="md-font-sm text-muted">
-                        Are you a physician?
-                    </FormLabel>
-                    <FormRow className="px-1 py-2">
-                        <Col>
-                            <div className="custom-control custom-radio custom-control-inline">
+            </FormRow>
+            <FormGroup>
+                <FormLabel for="registerInput10" className="md-font-sm text-muted">
+                    Are you a physician?
+                </FormLabel>
+                <FormRow>
+                    <Col>
+                        <div className="border rounded py-2 px-1 w-100">
+                            <div className="custom-control custom-radio">
                                 <input type="radio" id="registerInput10" name="isPhysician" 
                                     className="custom-control-input" value="Yes" 
                                         checked={fields.isPhysician === "Yes"} 
                                             onChange={handleChange} />
-                                <label className="custom-control-label" for="registerInput10">Yes</label>
+                                <label for="registerInput10" className="custom-control-label w-100">
+                                    Yes
+                                </label>
                             </div>
-                        </Col>
-                        <Col>
-                            <div className="custom-control custom-radio custom-control-inline">
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="border rounded py-2 px-1 w-100">
+                            <div className="custom-control custom-radio">
                                 <input type="radio" id="registerInput11" name="isPhysician" 
                                     className="custom-control-input" value="No" 
                                         checked={fields.isPhysician === "No"} 
                                             onChange={handleChange} />
-                                <label className="custom-control-label" for="registerInput11">No</label>
+                                <label for="registerInput11" className="custom-control-label w-100">
+                                    No
+                                </label>
                             </div>
-                        </Col>
-                    </FormRow>
-                </FormGroup>
-            </FormRow>
+                        </div>
+                    </Col>
+                </FormRow>
+            </FormGroup>
             {(fields.isPhysician === "Yes") &&
                 <FormRow>
                     <FormGroup className="col-sm-6">
