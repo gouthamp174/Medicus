@@ -118,7 +118,7 @@ var AppointmentDAO = /*#__PURE__*/function () {
                 _context2.prev = 1;
                 _context2.next = 4;
                 return this.appointments.find(filter).sort({
-                  "_id": -1
+                  "startTime": -1
                 }).skip(page * limit).limit(limit);
 
               case 4:

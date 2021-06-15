@@ -29,7 +29,7 @@ export default class AppointmentDAO {
 
   static async getAppointments({filter=null, page=0, limit=10} = {}) {
     try {
-      const cursor = await this.appointments.find(filter).sort({ "_id": -1 })
+      const cursor = await this.appointments.find(filter).sort({ "startTime": -1 })
         .skip(page*limit).limit(limit)
       return await cursor.toArray()
     } catch (err) {
