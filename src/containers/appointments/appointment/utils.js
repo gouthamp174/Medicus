@@ -43,7 +43,7 @@ export function Status(props) {
     }
 
     return (
-        <span className={`badge badge-pill md-font-sm md-appt-st md-badge ${colorClass}`}>
+        <span className={`badge badge-pill border md-font-sm md-appt-st md-badge ${colorClass}`}>
             {props.status}
         </span>
     );

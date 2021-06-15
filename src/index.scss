@@ -370,25 +370,25 @@ form {
   // Status Indicator
   .md-appt-st {
     &.md-badge {
-      font-size: 100%;
+      background-color: transparent;
 
       &.st-pending {
-        background-color: #FFF8DE;
+        border-color: #F9AE3F!important;
         color: #F9AE3F;
       }
 
       &.st-accept {
-        background-color: #E2F8E9;
+        border-color: #37BC64!important;
         color: #37BC64;
       }
 
       &.st-reject {
-        background-color: #FFF3F3;
+        border-color: #DE5050!important;
         color: #DE5050;
       }
 
       &.st-done {
-        background-color: #D3D3D3;
+        border-color: #6c757d!important;
         color: #6c757d;
       }
     }

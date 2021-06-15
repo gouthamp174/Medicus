@@ -21,7 +21,7 @@ export default function AppointmentListView(props) {
     return (
         <FluidContainer className="md-appt">
             <Row>
-                <Col className="col-auto px-0">
+                <Col className="col-auto px-0 d-xl-none">
                     <StatusIndicator status={props.appointment.status} />
                 </Col>
                 <Col className="py-3">
