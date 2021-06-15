@@ -6,7 +6,7 @@ import { Col, FluidContainer, Row } from '../../../../../components/layout';
 
 import SubtitleBar, { SubtitleBarLink } from '../../../../home/subtitleBar';
 import ManageBar from '../../manageBar';
-import { AppointmentTitle, DisplayName } from '../../utils';
+import { AppointmentTitle, DisplayName, Status } from '../../utils';
 import { Card, CardBody, CardFooter, CardHeader } from '../../../../../components/cards';
 
 
@@ -79,6 +79,11 @@ export default function Banner(props) {
                             <SubTitle>
                                 <FullTime date={startTime} hour12={true} />, <PrettyDate date={startTime} /> - <FullTime date={endTime} hour12={true} />, <PrettyDate date={endTime} />
                             </SubTitle>
+                            <Row>
+                                <Col className="mb-1">
+                                    <Status status={props.appointment.status} />
+                                </Col>
+                            </Row>
                         </CardBody>
                     </Col>
                 </Row>

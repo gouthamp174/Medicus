@@ -63,9 +63,13 @@ export default function AppointmentListView(props) {
                             </p>
                         </Col>
                         <Col className="col-xl-2 d-none d-xl-inline align-self-center">
-                            <Status 
-                                status={props.appointment.status} 
-                            />
+                            <Row className="justify-content-center">
+                                <Col className="col-auto">
+                                    <Status 
+                                        status={props.appointment.status} 
+                                    />
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </Col>

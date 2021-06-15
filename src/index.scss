@@ -369,23 +369,31 @@ form {
 .md-appt {
   // Status Indicator
   .md-appt-st {
-    &.st-pending {
-      color: #F9AE3F;
+    &.md-badge {
+      font-size: 100%;
+
+      &.st-pending {
+        background-color: #FFF8DE;
+        color: #F9AE3F;
+      }
+
+      &.st-accept {
+        background-color: #E2F8E9;
+        color: #37BC64;
+      }
+
+      &.st-reject {
+        background-color: #FFF3F3;
+        color: #DE5050;
+      }
+
+      &.st-done {
+        background-color: #D3D3D3;
+        color: #6c757d;
+      }
     }
 
-    &.st-accept {
-      color: #37BC64;
-    }
-
-    &.st-reject {
-      color: #DE5050;
-    }
-
-    &.st-done {
-      color: #6c757d;
-    }
-
-    &.md-appt-st-ind {
+    &.md-ind {
       color: inherit;
       border-top-left-radius: 0.18rem!important;
       border-bottom-left-radius: 0.18rem!important;

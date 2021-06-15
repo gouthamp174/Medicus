@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { FullTime, PrettyDate } from '../../../../../../components/dates';
 import { Col, FluidContainer, Row } from '../../../../../../components/layout';
 import { Loader } from '../../../../../../components/loaders';
-import { BioData, FullName, ProfilePhoto } from '../../../../../../components/users';
+import { BioData, Currency, FullName, ProfilePhoto } from '../../../../../../components/users';
 import { TitleBar, Widget, WidgetBody } from '../../../../../../components/widgets';
-
-import { Status } from '../../../utils';
 
 
 function UserInfo(props) {
@@ -108,10 +106,6 @@ function ViewSection(props) {
                 <InfoBody>{props.appointment.title}</InfoBody>
             </InfoRow>
             <InfoRow>
-                <InfoTitle>Service</InfoTitle>
-                <InfoBody>{props.appointment.serviceName}</InfoBody>
-            </InfoRow>
-            <InfoRow>
                 <InfoTitle>Patient</InfoTitle>
                 <InfoBody>
                     <UserInfo session={props.session} user={props.appointment.patient} />
@@ -124,18 +118,6 @@ function ViewSection(props) {
                 </InfoBody>
             </InfoRow>
             <InfoRow>
-                <InfoTitle>Status</InfoTitle>
-                <InfoBody>
-                    <FluidContainer>
-                        <Row>
-                            <Col className="col-auto px-0">
-                                <Status status={props.appointment.status} />
-                            </Col>
-                        </Row>
-                    </FluidContainer>
-                </InfoBody>
-            </InfoRow>
-            <InfoRow>
                 <InfoTitle>Start Time</InfoTitle>
                 <InfoBody>
                     <FullTime date={startTime} hour12={true}/>, <PrettyDate date={startTime} />
@@ -145,6 +127,22 @@ function ViewSection(props) {
                 <InfoTitle>End Time</InfoTitle>
                 <InfoBody>
                     <FullTime date={endTime} hour12={true}/>, <PrettyDate date={endTime} />
+                </InfoBody>
+            </InfoRow>
+            <InfoRow>
+                <InfoTitle>Service</InfoTitle>
+                <InfoBody>{props.appointment.serviceName}</InfoBody>
+            </InfoRow>
+            <InfoRow>
+                <InfoTitle>Service Charge</InfoTitle>
+                <InfoBody>
+                    <Currency value={props.appointment.serviceCharge} />
+                </InfoBody>
+            </InfoRow>
+            <InfoRow>
+                <InfoTitle>Payment Balance</InfoTitle>
+                <InfoBody>
+                    <Currency value={props.appointment.paymentBalance} />
                 </InfoBody>
             </InfoRow>
             <InfoRow>

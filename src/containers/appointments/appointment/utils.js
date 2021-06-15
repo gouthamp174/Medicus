@@ -20,7 +20,7 @@ export function StatusIndicator(props) {
     }
 
     return (
-        <FluidContainer className={`h-100 md-appt-st md-appt-st-ind ${colorClass} p-1`}>
+        <FluidContainer className={`h-100 md-appt-st md-ind ${colorClass} p-1`}>
         </FluidContainer>
     );
 }
@@ -43,9 +43,9 @@ export function Status(props) {
     }
 
     return (
-        <p className={`md-appt-st ${colorClass} my-0 text-center`}>
+        <span className={`badge badge-pill md-font-sm md-appt-st md-badge ${colorClass}`}>
             {props.status}
-        </p>
+        </span>
     );
 }
 

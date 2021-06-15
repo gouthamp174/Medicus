@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useCompareUsers } from '../../../../../../components/hooks';
 import { AutoLoader } from '../../../../../../components/loaders';
-import { TitleBar, TitleToggler, Widget, 
+import { TitleBar, TitleToggler, Widget, WidgetBody, 
     WidgetCollapsible } from '../../../../../../components/widgets';
 
 import AddSection from './addSection';
+import InfoSection from './infoSection';
 import ListSection from './listSection';
 
 
@@ -55,6 +56,11 @@ export default function PaymentSection(props) {
                 payments: newPayments
             }
         });
+
+        if (props.updatePayment) {
+            const newPaymentBalance = props.appointment.paymentBalance - newPayment.amount;
+            props.updatePayment(newPaymentBalance);
+        }
     }
 
     async function deletePayment(id) {
@@ -73,8 +79,12 @@ export default function PaymentSection(props) {
                 throw new Error(data.message);
             }
 
+            let deletedPayment = null;
             setState(prevState => {
                 const newPayments = state.payments.filter(payment => {
+                    if (payment.id == id) {
+                        Object.assign(payment, deletedPayment);
+                    }
                     return payment.id !== id;
                 });
 
@@ -83,6 +93,11 @@ export default function PaymentSection(props) {
                     payments: newPayments
                 }
             });
+
+            if (props.updatePayment && deletedPayment !== null) {
+                const newPaymentBalance = props.appointment.paymentBalance + deletedPayment.amount;
+                props.updatePayment(newPaymentBalance);
+            }
         } catch (err) {
             console.error(`Failed to delete payment- ${id}. ${err}`);
         }
@@ -104,6 +119,11 @@ export default function PaymentSection(props) {
                         />
                     }
                 </TitleBar>
+                <WidgetBody className="border-bottom">
+                    <InfoSection
+                        appointment={props.appointment}
+                    />
+                </WidgetBody>
                 <WidgetCollapsible id="apptPaymentAdd01">
                     <AddSection 
                         session={props.session}
