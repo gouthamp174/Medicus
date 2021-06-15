@@ -50,9 +50,9 @@ export function Status(props) {
 }
 
 export function DisplayName(props) {
-    const currentUserFullName = <FullName user={props.session} />;
-    const patientFullName = <FullName user={props.appointment.patient} />;
-    const physicianFullName = <FullName user={props.appointment.physician} />;
+    const currentUserFullName = FullName({ user: props.session });
+    const patientFullName = FullName({ user: props.appointment.patient });
+    const physicianFullName = FullName({ user: props.appointment.physician });
 
     if (currentUserFullName === patientFullName) {
         return physicianFullName;
