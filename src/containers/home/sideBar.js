@@ -88,6 +88,7 @@ function TopLinks(props) {
 
 function ExtraLinks(props) {
     const links = [];
+    links.push({ path: `/users/${props.session.username}`, title: "Profile", icon: "person" });
     links.push({ path: "/settings", title: "Settings", icon: "settings" });
     links.push({ path: "/help", title: "Help Center", icon: "help_outline" });
     links.push({ path: "/contact", title: "Contact Us", icon: "contact_support" });
@@ -200,6 +201,7 @@ export default function SideBar(props) {
             <SectionDivider />
             <LinkSection>
                 <ExtraLinks
+                    session={session}
                     handleClick={handleClick}
                 />
             </LinkSection>
