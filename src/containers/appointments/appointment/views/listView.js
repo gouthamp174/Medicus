@@ -41,7 +41,7 @@ export default function AppointmentListView(props) {
                                         <FullTime date={appointmentEndTime} hour12={true} />
                                     </h6>
                                     <p className="md-font-sm text-center text-muted my-0">
-                                        <PrettyDate date={appointmentStartTime} />
+                                        <PrettyDate date={appointmentEndTime} />
                                     </p>
                                 </Col>
                             </Row>
