@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { calculateAge } from './dates.js';
-import { useExtendClass } from "./hooks.js";
+import { calculateAge } from './dates';
+import { useExtendClass } from "./hooks";
+import { Col, FluidContainer, Row } from './layout';
+import { Loader } from './loaders';
 
 
 /* Generic User Components */
 export function FullName(props) {
     if (props.user) {
-        let fullName = `${props.user.firstName} ${props.user.lastName}`;
-        return fullName;
+        if (props.user.isPhysician) {
+            return `Dr. ${props.user.firstName} ${props.user.lastName}`;
+        } else {
+            return `${props.user.firstName} ${props.user.lastName}`;
+        }
     }
     return "";
 }
@@ -133,20 +138,35 @@ export function SpecializationInput(props) {
 
 
 export function Photo(props) {  
-    return (
-      <img id={props.id} alt={props.alt}
-        className={useExtendClass("img-fluid md-pfl-pic", props.className)} 
-        src={(props.src) ? URL.createObjectURL(props.src): ""} />
-    );
+    const className = useExtendClass("img-fluid md-pfl-pic", props.className);
+
+    if (props.isLoading) {
+        return (    
+            <FluidContainer className={className}>
+                <Row>
+                    <Col>
+                        <Loader isLoading={true} />
+                    </Col>
+                </Row>
+            </FluidContainer>
+        );
+    } else {
+        return (
+            <img id={props.id} alt={props.alt} className={className} 
+                src={(props.src) ? URL.createObjectURL(props.src): ""} />
+          );
+    }
 }
 
 
 export function ProfilePhoto(props) {
+    const [isLoading, setIsLoading] = useState(true);
     const [source, setSource] = useState("");
 
     useEffect(() => {
         async function initialize() {
             try {
+                setIsLoading(true);
                 const username = props.user.username;
                 const profilePhotoId = props.user.profilePhotoId;
 
@@ -167,6 +187,8 @@ export function ProfilePhoto(props) {
                 setSource(data);
             } catch (err) {
                 console.error(`Failed to load profile photo. ${err}`);
+            } finally {
+                setIsLoading(false);
             }
         }
 
@@ -178,6 +200,7 @@ export function ProfilePhoto(props) {
             id={props.id} 
             className={props.className} 
             src={source}
+            isLoading={isLoading}
         />
     );
 }
