@@ -13,7 +13,7 @@ This website provides you with an easy access to find a physician and receive he
 
 
 ## Visit my website?
-This website is hosted on Heroku. You can visit it by clicking on below link. Don't forget to register as a new user? ;)
+This website is hosted on Heroku cloud platform. You can visit it by clicking on below link. Don't forget to register as a new user? ;)
 
 https://gp-medicus.herokuapp.com
 
@@ -42,8 +42,8 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
    4. Once your account has been created, you will be automatically re-directed to your "Dashboard" page.
 
 <p float="left">
-   <img src="./docs/screenshots/welcome/patient_registration_page.png" title="Patient's Registration" width="450" />
-   <img src="./docs/screenshots/welcome/physician_registration_page.png" title="Physician's Registration" width="450" /> 
+   <img src="./docs/screenshots/welcome/patient_registration_page.png" title="Patient's Registration" width="400" />
+   <img src="./docs/screenshots/welcome/physician_registration_page.png" title="Physician's Registration" width="400" /> 
 </p>
 
 2. **General Layout**: All pages, except Welcome page, are divided into left and right sections.
@@ -53,7 +53,7 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
 3. **Dashboard** page: After signing in, you will be re-directed to this page. It is your one-stop to an overview for the current day. It quickly shows you any appointments that you're currently waiting on. Also, it shows your recent medication and payment history.
 
 <p float="left">
-   <img src="./docs/screenshots/dashboard/dashboard.png" title="Dashboard" width="450" />
+   <img src="./docs/screenshots/dashboard/dashboard.png" title="Dashboard" width="400" />
 </p>
 
 4. **New Appointment** page [Patients only]: On the left sidebar, click on "New Appointment" link. This will take you through three quick steps to create a new appointment. 
@@ -63,15 +63,15 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
    4. Request for an appointment by clicking on "Request Appointment" button.
 
 <p float="left">
-   <img src="./docs/screenshots/new_appointment/new_appointment_step1.png" title="Step-1" width="300" />
-   <img src="./docs/screenshots/new_appointment/new_appointment_step2.png" title="Step-2" width="300" />
-   <img src="./docs/screenshots/new_appointment/new_appointment_step3.png" title="Step-3" width="300" />
+   <img src="./docs/screenshots/new_appointment/new_appointment_step1.png" title="Step-1" width="250" />
+   <img src="./docs/screenshots/new_appointment/new_appointment_step2.png" title="Step-2" width="250" />
+   <img src="./docs/screenshots/new_appointment/new_appointment_step3.png" title="Step-3" width="250" />
 </p>
 
 5. **Appointments** page: Here you can view all the appointments that you've requested for or scheduled with a physician. They are listed in reverse chronological order with latest to earliest. Each appointment provides a quick overview and few options to manage it. You can click on an appointment to go its page.
 
 <p float="left">
-   <img src="./docs/screenshots/appointments/appointments_page.png" title="Appointments" width="450" />
+   <img src="./docs/screenshots/appointments/appointments_page.png" title="Appointments" width="400" />
 </p>
 
 6. **Appointment** page: You can view your appointment and all it's information in this page. It is further sub-divided into multiple sections.
@@ -84,14 +84,14 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
    7. Once an appointment has been accepted by the Physician, a chat button is available on the top right corner. You can click on it to be taken to corresponding chat page.
 
 <p float="left">
-   <img src="./docs/screenshots/appointment/appointment_page_information.png" title="Information section" width="450" />
-   <img src="./docs/screenshots/appointment/appointment_page_payments.png" title="Payments section" width="450" />
+   <img src="./docs/screenshots/appointment/appointment_page_information.png" title="Information section" width="400" />
+   <img src="./docs/screenshots/appointment/appointment_page_payments.png" title="Payments section" width="400" />
 </p>
 
 7. **Chat** page: Each chat page is associated with its appointment page. You can click on "Go to appointment" button on the top right corner to visit this appointment. Once you're on this page, you can chat with your physician and discuss your health issue. All conversations happen at real-time. Take your time to get all the help you will need from your physician.
 
 <p float="left">
-   <img src="./docs/screenshots/appointment/appointment_chat_page.png" title="Chat" width="450" />
+   <img src="./docs/screenshots/appointment/appointment_chat_page.png" title="Chat" width="400" />
 </p>
 
 7. **Waiting Room** page: On the left sidebar, click on "Waiting Room" link. This will take you to your waiting room. Here you can see all appointments that are currently waiting on you to join. It's usually not polite to have others waiting on you. So manage your appointments well.
@@ -101,8 +101,8 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
 10. **Search Patient** page [Patients only]: It is very similar to "Search Physician" page except that physicians can use it to visit their patients' page.
 
 <p float="left">
-   <img src="./docs/screenshots/search_users/search_physicians_page.png" title="Search Physicians" width="450" />
-   <img src="./docs/screenshots/search_users/search_patients_page.png" title="Search Patients" width="450" />
+   <img src="./docs/screenshots/search_users/search_physicians_page.png" title="Search Physicians" width="400" />
+   <img src="./docs/screenshots/search_users/search_patients_page.png" title="Search Patients" width="400" />
 </p>
 
 11. **Profile** page: You can create your profile page and customize it with your details to help a patient/physician who visits it to know you better. What's more? You can add a custom profile picture of yourself too.
@@ -113,8 +113,8 @@ https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
     5. _Services_ section [Physician Only]: In this section, you can add a services that are provide by you to patients. They can view them before scheduling an appointment.
 
 <p float="left">
-   <img src="./docs/screenshots/profile/patient_profile_page_about.png" title="About section" width="450" />
-   <img src="./docs/screenshots/profile/physician_profile_page_services.png" title="Services section" width="450" />
+   <img src="./docs/screenshots/profile/patient_profile_page_about.png" title="About section" width="400" />
+   <img src="./docs/screenshots/profile/physician_profile_page_services.png" title="Services section" width="400" />
 </p>
 
 12. **Settings** Page: You can update personal information in this page. From account information, profile photo, changing password to deleting you account, you can modofy your details here.
