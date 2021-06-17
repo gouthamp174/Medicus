@@ -31,7 +31,7 @@ https://gp-medicus.herokuapp.com
 ## Website Walk-through
 A complete walk-through of my website is available at below youtube link-
 
-https://www.youtube.com/watch?v=E0aSBCv3FTs&t=271s
+https://www.youtube.com/watch?v=E0aSBCv3FTs
 
 
 ## Website Layout
