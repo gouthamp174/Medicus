@@ -50,9 +50,11 @@ export class UserApi {
         throw new HttpInternalServerError(degreeResponse.error)
       }
 
-      const photoResponse = await UserDAO.deletePhoto(profilePhotoId)
-      if (!photoResponse.success) {
-        throw new HttpInternalServerError(photoResponse.error)
+      if (profilePhotoId !== null) {
+        const photoResponse = await UserDAO.deletePhoto(profilePhotoId)
+        if (!photoResponse.success) {
+          throw new HttpInternalServerError(photoResponse.error)
+        }
       }
 
       const userResponse = await UserDAO.deleteUser(username)

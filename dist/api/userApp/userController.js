@@ -145,48 +145,53 @@ var UserApi = /*#__PURE__*/function () {
                 throw new _errors.HttpInternalServerError(degreeResponse.error);
 
               case 29:
-                _context.next = 31;
+                if (!(profilePhotoId !== null)) {
+                  _context.next = 35;
+                  break;
+                }
+
+                _context.next = 32;
                 return _userDAO.default.deletePhoto(profilePhotoId);
 
-              case 31:
+              case 32:
                 photoResponse = _context.sent;
 
                 if (photoResponse.success) {
-                  _context.next = 34;
+                  _context.next = 35;
                   break;
                 }
 
                 throw new _errors.HttpInternalServerError(photoResponse.error);
 
-              case 34:
-                _context.next = 36;
+              case 35:
+                _context.next = 37;
                 return _userDAO.default.deleteUser(username);
 
-              case 36:
+              case 37:
                 userResponse = _context.sent;
 
                 if (userResponse.success) {
-                  _context.next = 39;
+                  _context.next = 40;
                   break;
                 }
 
                 throw new _errors.HttpInternalServerError(userResponse.error);
 
-              case 39:
-                _context.next = 44;
+              case 40:
+                _context.next = 45;
                 break;
 
-              case 41:
-                _context.prev = 41;
+              case 42:
+                _context.prev = 42;
                 _context.t0 = _context["catch"](0);
                 throw _context.t0;
 
-              case 44:
+              case 45:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 41]]);
+        }, _callee, null, [[0, 42]]);
       }));
 
       function deleteUser(_x, _x2) {
